@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://localhost">
+<head>
+    <title>Product List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+<body>
+    <h1>Product List</h1>
+    <p>The current product list is: </p>
+    <p th:each="product : ${products}" th:text="${product}" />
+    <p>Copyright 2016-2017 DiffBlue limited. All rights reserved.</p>
+</body>
+</html>

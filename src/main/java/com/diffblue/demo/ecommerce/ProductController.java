@@ -33,12 +33,8 @@ public class ProductController {
   @RequestMapping("/ProductList")
   public String productList(Map<String, Object> model) {
 
-    Collection<String> allProducts = this.productRepo.findName();
-    Application.log.info("Number of products: " + allProducts.size());
+    Iterable<Product> allProducts = this.productRepo.findAll();
     Application.log.info("All Products as string: " + allProducts.toString());
-    for (String p : allProducts) {
-      Application.log.info("Product Name is: " + p.toString());
-    }
     model.put("products", allProducts);
     return "ProductList";
   }

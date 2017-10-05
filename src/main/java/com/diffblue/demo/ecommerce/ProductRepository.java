@@ -15,9 +15,7 @@ public interface ProductRepository extends Repository<Product, Integer> {
    * The following items are available:
    *  findName - returns all of the names of the products
    */
-
-  @Query("SELECT name FROM Product")
-  @Transactional(readOnly = true)
-  Collection<String> findName();
+  
+  Iterable<Product> findAll();
 
 }

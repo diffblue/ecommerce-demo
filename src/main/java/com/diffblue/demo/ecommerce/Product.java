@@ -4,6 +4,7 @@ package com.diffblue.demo.ecommerce;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,8 +31,27 @@ public class Product {
   @NotEmpty
   private String id;
 
+  @Column(name = "price")
+  @NotEmpty
+  private BigDecimal price;
+
   public String getName() {
     return this.name;
+  }
+
+  /**
+   * Setter for name, ensure that the name is not blank.
+   * @param newName update name to this.
+   * @return success (true) or failure (false).
+   */
+
+  public boolean setName(String newName) {
+    if (newName.isEmpty()) {
+      return false;
+    } else {
+      this.name = newName;
+      return true;
+    }
   }
 
   public String getId() {
@@ -39,36 +59,33 @@ public class Product {
   }
 
   /**
-   * Set the name of the product which cannot be blank.
-   * @param newName is the name to be used for the product
-   * @return success (true) or error (false)
-   */
-
-  public boolean setName(String newName) {
-    if (newName.length() > 0) {
-      this.name = newName;
-      return true;
-    } else {
-      // Names cannot be blank
-      return false;
-    }
-  }
-
-  /**
-   * Set the id of the product (for integration with other systems).
-   * @param newId the desired id
-   * @return success (true) or error (false)
+   * Update the ID, which must be PRODxxx (where x's are numbers)
+   * @param newId update id to this.
+   * @return success (true) or failure (false)
    */
 
   public boolean setId(String newId) {
-    if (newId.length() == 7 ) {
+    if (newId.length() != 7 ) {
+      return false;
+    } else {
       this.id = newId;
       return true;
-    } else {
-      // Id's are constrained to 7 characters:
-      // It is required that they are of the format PRODxxx
-      return false;
     }
+  }
+
+  public BigDecimal getPrice() {
+    return this.price;
+  }
+
+  /**
+   * Update the price.
+   * @param price new price.
+   * @return future proof and consistent with other setters
+   */
+
+  public boolean setPrice(BigDecimal price) {
+    this.price = price;
+    return true;
   }
 
 }

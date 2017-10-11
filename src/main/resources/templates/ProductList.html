@@ -13,6 +13,7 @@
             <div class="col-2"  th:text="${product.id}"/>
             <div class="col-4"  th:text="${product.name}"/>
             <div class="col-2">£<span th:text="${product.price}"/></div>
+            <div class="col-2"><a th:href="@{'/product/' + ${product.id}}">View</a></div>
         </div>
     </div>
     <p>Copyright 2016-2017 DiffBlue limited. All rights reserved.</p>

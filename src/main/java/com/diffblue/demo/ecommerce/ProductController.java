@@ -5,7 +5,7 @@ package com.diffblue.demo.ecommerce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Collection;
 import java.util.Map;
 
@@ -37,6 +37,14 @@ public class ProductController {
     Application.log.info("All Products as string: " + allProducts.toString());
     model.put("products", allProducts);
     return "ProductList";
+  }
+
+  @RequestMapping("/product/{id}")
+  public String productPage(@PathVariable("id") String id, Map<String, Object> model) {
+    Product prod = this.productRepo.findById(id);
+    Application.log.info("Product as string: " + prod.toString());
+    model.put("product", prod);
+    return "ProductPage";
   }
 
 }

@@ -17,5 +17,5 @@ public interface ProductRepository extends Repository<Product, Integer> {
    */
   
   Iterable<Product> findAll();
-
+  Product findById(String id);
 }

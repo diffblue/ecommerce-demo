@@ -1,20 +1,19 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://localhost">
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Product List</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <title>Products | 8-BLISS</title>
 </head>
 <body>
-    <h1>Product List</h1>
-    <p>The current product list is: </p>
-    <div class="table">
-        <div class="row" th:each="product : ${products}">
-            <div class="col-2"  th:text="${product.id}"/>
-            <div class="col-4"  th:text="${product.name}"/>
-            <div class="col-2">£<span th:text="${product.price}"/></div>
+    <div layout:fragment="content">
+        <h1>Product List</h1>
+        <p>The current product list is: </p>
+        <div class="table">
+            <div class="row" th:each="product : ${products}">
+                <div class="col-2"  th:text="${product.id}"/>
+                <div class="col-4"  th:text="${product.name}"/>
+                <div class="col-2">£<span th:text="${product.price}"/></div>
+            </div>
         </div>
     </div>
-    <p>Copyright 2016-2017 DiffBlue limited. All rights reserved.</p>
 </body>
 </html>

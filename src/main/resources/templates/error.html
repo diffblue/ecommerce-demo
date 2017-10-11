@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
   <head>
     <title>Error</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
   </head>
   <body>
-    <H1>ERROR</H1>
-    <p>An error has occured, if this persists please contact support!</p>
-    <p>Copyright 2016-2017 DiffBlue limited. All rights reserved.</p>
+    <div layout:fragment="content">
+      <H1>ERROR</H1>
+      <p>An error has occured, if this persists please contact support!</p>
+    </div>
   </body>
 </html>

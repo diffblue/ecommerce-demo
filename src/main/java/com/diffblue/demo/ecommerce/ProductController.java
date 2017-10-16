@@ -46,6 +46,7 @@ public class ProductController {
       model.put("product", prod);
       return "ProductPage";
     }else{
+      Application.log.info("Unknown product id provided: " + id);
       return "redirect:/ProductList";
     }
 

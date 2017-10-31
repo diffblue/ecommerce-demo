@@ -4,9 +4,9 @@ package com.diffblue.demo.ecommerce;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -39,4 +39,21 @@ public class ProductController {
     return "ProductList";
   }
 
+  /**
+   * Get a given product data to display on the product page.
+   * @param id product id, model where to put the product data
+   * @return Product Page for the output
+   */
+  @RequestMapping("/product/{id}")
+  public String productPage(@PathVariable("id") String id, Map<String, Object> model) {
+    Product prod = this.productRepo.findById(id);
+    if (prod != null) {
+      Application.log.info("Product as string: " + prod.toString());
+      model.put("product", prod);
+      return "ProductPage";
+    } else {
+      Application.log.info("Unknown product id provided: " + id);
+      return "redirect:/ProductList";
+    }
+  }
 }

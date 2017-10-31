@@ -18,4 +18,8 @@ public interface ProductRepository extends Repository<Product, Integer> {
   
   Iterable<Product> findAll();
 
+  /**
+   * Provides access to a given product information from the database.
+   */
+  Product findById(String id);
 }

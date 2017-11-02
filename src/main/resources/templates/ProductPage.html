@@ -1,15 +1,14 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://localhost">
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
     <title>Product Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
 </head>
 <body>
-<h1>Product Page</h1>
-<p>Product id: <span th:text="${product.id}"/></p>
-<p>Product name: <span th:text="${product.name}"/></p>
-<p>Product price: <span th:text="${product.price}"/></p>
-<p>Copyright 2016-2017 DiffBlue limited. All rights reserved.</p>
+    <div layout:fragment="content">
+        <h1>Product Page</h1>
+        <p>Product id: <span th:text="${product.id}"/></p>
+        <p>Product name: <span th:text="${product.name}"/></p>
+        <p>Product price: <span th:text="${product.price}"/></p>
+    </div>
 </body>
 </html>

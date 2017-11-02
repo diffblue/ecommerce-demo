@@ -7,6 +7,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,12 +30,17 @@ public class Product {
 
   @Id
   @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @NotEmpty
-  private String id;
+  private int id;
 
   @Column(name = "price")
   @NotEmpty
   private BigDecimal price;
+
+  @Column(name = "description")
+  @NotEmpty
+  private String description;
 
   public String getName() {
     return this.name;
@@ -54,7 +61,7 @@ public class Product {
     }
   }
 
-  public String getId() {
+  public int getId() {
     return this.id;
   }
 
@@ -64,13 +71,9 @@ public class Product {
    * @return success (true) or failure (false)
    */
 
-  public boolean setId(String newId) {
-    if (newId.length() != 7 ) {
-      return false;
-    } else {
-      this.id = newId;
-      return true;
-    }
+  public boolean setId(int newId) {
+    this.id = newId;
+    return true;
   }
 
   public BigDecimal getPrice() {
@@ -85,6 +88,21 @@ public class Product {
 
   public boolean setPrice(BigDecimal price) {
     this.price = price;
+    return true;
+  }
+
+  public String getDescription() {
+    return  this.description;
+  }
+
+  /**
+   * Update the description.
+   * @param description new description.
+   * @return future proof and consistent with other setters
+   */
+
+  public boolean setDescription(String description) {
+    this.description = description;
     return true;
   }
 

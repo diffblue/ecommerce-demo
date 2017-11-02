@@ -10,7 +10,7 @@
         <div class="table">
             <div class="row" th:each="product : ${products}">
                 <div class="col-2"  th:text="${product.id}"/>
-                <div class="col-4"  th:text="${product.name}"/>
+                <div class="col-4"><a th:href="@{/product/}+${product.id}" th:text="${product.name}"/></div>
                 <div class="col-2">£<span th:text="${product.price}"/></div>
             </div>
         </div>

@@ -48,7 +48,9 @@ public class Product {
   @JoinColumn(name = "category_id")
   private Category category;
 
-
+  @ManyToOne
+  @JoinColumn(name = "collection_id")
+  private Collection collection;
 
 
   public String getName() {
@@ -130,4 +132,18 @@ public class Product {
     return true;
   }
 
+  public Collection getCollection() {
+    return this.collection;
+  }
+
+  /**
+   * Update the product collection.
+   * @param collection new collection.
+   * @return future proof and consistent with other setters
+   */
+
+  public boolean setCollection(Collection collection) {
+    this.collection = collection;
+    return true;
+  }
 }

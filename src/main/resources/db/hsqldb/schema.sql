@@ -25,7 +25,7 @@ CREATE TABLE products (
     collection_id INTEGER NOT NULL,
     name    VARCHAR(30),
     price   DECIMAL(20,2),
-    description VARCHAR(30),
+    description VARCHAR(500),
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (collection_id) REFERENCES collections(id)
 );

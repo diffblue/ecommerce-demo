@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -82,5 +83,31 @@ public class CartController {
     }
     return "redirect:/cart";
   }
+
+  /**
+   * Update a given product quantity in the cart.
+   * @return Page for the output
+   */
+  @PostMapping("/updateCartItem")
+  public String updateCartItem(HttpServletRequest request, HttpSession session) {
+
+    int id = Integer.parseInt(request.getParameter("product_id"));
+    int newQty = Integer.parseInt(request.getParameter("quantity"));
+
+    Product prod = this.productRepo.findById(id);
+    if (prod != null) {
+      if (session.getAttribute("shoppingCart") != null) {
+        Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
+        shoppingCart.updateProductQuantity(prod, newQty);
+        session.setAttribute("shoppingCart",shoppingCart);
+      } else {
+        Application.log.info("Shopping cart not created");
+      }
+    } else {
+      Application.log.info("Unknown product id provided: " + id);
+    }
+    return "redirect:/cart";
+  }
+
 
 }

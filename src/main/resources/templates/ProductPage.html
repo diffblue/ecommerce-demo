@@ -11,7 +11,10 @@
                 <div th:text="${product.collection.name}"/>
                 <div th:text="${product.name}"/>
                 <div th:text="${product.price}"/>
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add to basket</button>
+                <form th:action="@{/addToCart}" th:object="${product}" method="post">
+                    <input type="hidden" th:field="*{id}"/>
+                    <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Add to basket</button>
+                </form>
                 <div>Description<br/><span th:text="${product.description}"/></div>
             </div>
         </div>

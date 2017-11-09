@@ -26,6 +26,7 @@ CREATE TABLE products (
     name    VARCHAR(30),
     price   DECIMAL(20,2),
     description VARCHAR(500),
+    photo VARCHAR(500),
     FOREIGN KEY (category_id) REFERENCES categories(id),
     FOREIGN KEY (collection_id) REFERENCES collections(id)
 );

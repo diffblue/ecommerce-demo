@@ -6,7 +6,7 @@
 <body>
     <div layout:fragment="content">
         <div class="row">
-            <div class="col-6"><!--Photo goes here--></div>
+            <div class="col-6"><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
             <div class="col-6">
                 <div th:text="${product.collection.name}"/>
                 <div th:text="${product.name}"/>

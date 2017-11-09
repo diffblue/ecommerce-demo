@@ -7,7 +7,7 @@
     <div layout:fragment="content">
         <div class="row">
             <div class="col-4" th:each="product : ${products}">
-                <div><!--Photo goes here--></div>
+                <div><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
                 <div th:text="${product.category.name}"/>
                 <div><a th:href="@{/product/}+${product.id}" th:text="${product.collection.name}"/></div>
                 <div>£<span th:text="${product.price}"/></div>

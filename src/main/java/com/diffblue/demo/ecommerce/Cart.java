@@ -53,4 +53,19 @@ public class Cart {
   public BigDecimal getTotal() {
     return subtotal;
   }
+
+  /**
+   * Remove product to card.
+   * @param product the product to be remove
+   */
+  public void removeProduct(Product product) {
+    if (cartItems.containsKey(product)) {
+      //Initialise big decimal with quantity which is an integer.
+      //This way we avoid complications when multiplying with the price which is a big decimal
+      BigDecimal totalToSubtract = new BigDecimal(cartItems.get(product));
+      totalToSubtract = totalToSubtract.multiply(product.getPrice());
+      this.subtotal = this.subtotal.subtract(totalToSubtract);
+      cartItems.remove(product);
+    }
+  }
 }

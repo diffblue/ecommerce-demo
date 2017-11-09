@@ -34,6 +34,11 @@ public class Product {
   @NotEmpty
   private int id;
 
+  @Column(name = "sku")
+  @NotEmpty
+  private String sku;
+
+
   @Column(name = "price")
   @NotEmpty
   private BigDecimal price;
@@ -106,4 +111,11 @@ public class Product {
     return true;
   }
 
+  public String getSku() {
+    return sku;
+  }
+
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
 }

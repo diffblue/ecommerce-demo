@@ -4,8 +4,9 @@ DROP TABLE products IF EXISTS;
 -- Create table to hold information about the products
 CREATE TABLE products (
     id      INTEGER IDENTITY PRIMARY KEY,
-    name    VARCHAR(30),
-    price   DECIMAL(20,2),
-    description VARCHAR(30)
+    sku     VARCHAR(30) NOT NULL UNIQUE,
+    name    VARCHAR(30) NOT NULL,
+    price   DECIMAL(20,2) NOT NULL,
+    description VARCHAR(30) NOT NULL
 );
 

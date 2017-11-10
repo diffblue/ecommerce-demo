@@ -50,9 +50,8 @@ public class Category {
    * @return success (true) or failure (false)
    */
 
-  public boolean setId(int newId) {
+  public void setId(int newId) {
     this.id = newId;
-    return true;
   }
 
   public String getName() {
@@ -65,12 +64,9 @@ public class Category {
    * @return success (true) or failure (false).
    */
 
-  public boolean setName(String newName) {
-    if (newName.isEmpty()) {
-      return false;
-    } else {
+  public void setName(String newName) {
+    if (!newName.isEmpty()) {
       this.name = newName;
-      return true;
     }
   }
 

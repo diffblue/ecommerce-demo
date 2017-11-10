@@ -139,11 +139,9 @@ public class Product {
   /**
    * Update the product collection.
    * @param collection new collection.
-   * @return future proof and consistent with other setters
    */
 
-  public boolean setCollection(Collection collection) {
+  public void setCollection(Collection collection) {
     this.collection = collection;
-    return true;
   }
 }

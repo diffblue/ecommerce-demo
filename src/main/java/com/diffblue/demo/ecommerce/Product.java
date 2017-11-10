@@ -53,9 +53,6 @@ public class Product {
   @JoinColumn(name = "category_id")
   private Category category;
 
-
-
-
   public String getName() {
     return this.name;
   }
@@ -127,7 +124,7 @@ public class Product {
   public void setSku(String sku) {
     this.sku = sku;
   }
-
+  
   public Category getCategory() {
     return this.category;
   }

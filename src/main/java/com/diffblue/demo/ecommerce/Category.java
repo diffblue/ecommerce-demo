@@ -47,7 +47,6 @@ public class Category {
   /**
    * Update category id
    * @param newId update id to this.
-   * @return success (true) or failure (false)
    */
 
   public void setId(int newId) {
@@ -61,7 +60,6 @@ public class Category {
   /**
    * Setter for name, ensure that the name is not blank.
    * @param newName update name to this.
-   * @return success (true) or failure (false).
    */
 
   public void setName(String newName) {

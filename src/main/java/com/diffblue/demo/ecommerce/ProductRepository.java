@@ -21,5 +21,5 @@ public interface ProductRepository extends Repository<Product, Integer> {
   /**
    * Provides access to a given product information from the database.
    */
-  Product findById(String id);
+  Product findById(int id);
 }

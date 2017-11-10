@@ -45,7 +45,7 @@ public class ProductController {
    * @return Product Page for the output
    */
   @RequestMapping("/product/{id}")
-  public String productPage(@PathVariable("id") String id, Map<String, Object> model) {
+  public String productPage(@PathVariable("id") int id, Map<String, Object> model) {
     Product prod = this.productRepo.findById(id);
     if (prod != null) {
       Application.log.info("Product as string: " + prod.toString());

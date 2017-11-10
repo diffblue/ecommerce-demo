@@ -3,7 +3,10 @@ DROP TABLE products IF EXISTS;
 
 -- Create table to hold information about the products
 CREATE TABLE products (
-    id      VARCHAR(7),
-    name    VARCHAR(30),
-    price   DECIMAL(20,2)
+    id      INTEGER IDENTITY PRIMARY KEY,
+    sku     VARCHAR(30) NOT NULL UNIQUE,
+    name    VARCHAR(30) NOT NULL,
+    price   DECIMAL(20,2) NOT NULL,
+    description VARCHAR(30) NOT NULL
 );
+

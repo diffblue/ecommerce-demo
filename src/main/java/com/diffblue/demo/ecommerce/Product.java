@@ -132,12 +132,10 @@ public class Product {
   /**
    * Update the product category.
    * @param category new category.
-   * @return future proof and consistent with other setters
    */
 
-  public boolean setCategory(Category category) {
+  public void setCategory(Category category) {
     this.category = category;
-    return true;
   }
 
 }

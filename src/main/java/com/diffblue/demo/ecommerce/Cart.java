@@ -9,6 +9,7 @@ public class Cart {
 
   private Map<Product, Integer> cartItems;
   private BigDecimal subtotal;
+  private BigDecimal shipping;
 
   /**
    * Constructor.
@@ -16,6 +17,7 @@ public class Cart {
   public Cart() {
     cartItems = new HashMap<>();
     subtotal = new BigDecimal(0);
+    shipping = new BigDecimal("4.50");
   }
 
   /**
@@ -67,6 +69,14 @@ public class Cart {
         cartItems.replace(product, newQty);
       }
     }
+  }
+
+  public BigDecimal getShipping() {
+    return shipping;
+  }
+
+  public BigDecimal getTotal() {
+    return subtotal.add(shipping);
   }
 
 

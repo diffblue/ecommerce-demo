@@ -7,13 +7,14 @@
     <div layout:fragment="content">
         <div class="row">
             <div class="col-8">
-                <form th:action="@{/checkout/customer}" method="post">
+                <form th:action="@{/checkout}" th:object="${customer}" method="post">
                     <div class="row">
                         <div class="col-12"><b>Customer information</b></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input type="email" placeholder="Email" class="form-control"/>
+                            <input th:field="*{email}" type="email" placeholder="Email" class="form-control"/>
+                            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
                         </div>
                     </div>
                     <div class="row">
@@ -21,38 +22,47 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <input class="form-control" type="text" placeholder="First name" id="first-name"/>
+                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="First name"/>
+                            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
                         </div>
                         <div class="col-6">
-                            <input class="form-control" type="text" placeholder="Last name" id="last-name"/>
+                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="Last name"/>
+                            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input class="form-control" type="text" placeholder="Company" id="company"/>
+                            <input th:field="*{shippingAddress.company}" class="form-control" type="text" placeholder="Company"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.company')}" th:errors="*{shippingAddress.company}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input class="form-control" type="text" placeholder="Address*" id="address"/>
+                            <input th:field="*{shippingAddress.addressLine}" class="form-control" type="text" placeholder="Address*"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.addressLine')}" th:errors="*{shippingAddress.addressLine}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input class="form-control" type="text" placeholder="City*" id="city"/>
+                            <input th:field="*{shippingAddress.city}" class="form-control" type="text" placeholder="City*"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.city')}" th:errors="*{shippingAddress.city}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <input class="form-control" type="text" placeholder="Country*" id="country"/>
+                            <input th:field="*{shippingAddress.country}" class="form-control" type="text" placeholder="Country*"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.country')}" th:errors="*{shippingAddress.country}"/>
                         </div>
                         <div class="col-6">
-                            <input class="form-control" type="text" placeholder="Postcode*" id="postcode"/>
+                            <input th:field="*{shippingAddress.postcode}" class="form-control" type="text" placeholder="Postcode*"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.postcode')}" th:errors="*{shippingAddress.postcode}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input class="form-control" type="text" placeholder="Phone*" id="phone-number"/>
+                            <input th:field="*{phoneNumber}" class="form-control" type="text" placeholder="Phone*"/>
+                            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"/>
+
                         </div>
                     </div>
                     <div class="row">

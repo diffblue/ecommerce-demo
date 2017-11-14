@@ -2,10 +2,13 @@ package com.diffblue.demo.ecommerce;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 public class CheckoutController {
@@ -22,13 +25,60 @@ public class CheckoutController {
    */
 
   @RequestMapping("/checkout")
-  public String viewCheckoutPage(Map<String, Object> model, HttpSession session) {
+  public String viewCheckoutPage(Map<String, Object> model, HttpSession session,
+                                 Customer customer) {
     if (session.getAttribute("shoppingCart") != null) {
       Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
       model.put("cart", shoppingCart);
       return "Checkout";
     } else {
       return "redirect:/cart";
+    }
+  }
+
+  /**
+   * Save customer information page.
+   * @param customer - customer object
+   * @param bindingResult - object with form validation result
+   * @param session - current http session
+   * @return page for the output
+   */
+  @PostMapping("/checkout")
+  public String saveCustomerInformation(@Valid Customer customer, BindingResult bindingResult,
+                                        Map<String, Object> model, HttpSession session) {
+    if (bindingResult.hasErrors()) {
+      Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
+      model.put("cart", shoppingCart);
+      return "Checkout";
+    } else {
+      session.setAttribute("customerInformation", customer);
+      return "redirect:/payment";
+    }
+
+  }
+
+  /**
+   * Get the cart and customer data and display it on the payment page.
+   * @param model where to put cart data, session current http session
+   * @return Page for the output
+   */
+  @RequestMapping("/payment")
+  public String viewPaymentPage(Map<String, Object> model, HttpSession session) {
+
+
+    if (session.getAttribute("shoppingCart") != null
+        && session.getAttribute("customerInformation") != null) {
+
+      Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
+      Customer customer = (Customer) session.getAttribute("customerInformation");
+
+      model.put("cart", shoppingCart);
+      model.put("customer", customer);
+
+      return "Payment";
+
+    } else {
+      return "redirect:/checkout";
     }
   }
 

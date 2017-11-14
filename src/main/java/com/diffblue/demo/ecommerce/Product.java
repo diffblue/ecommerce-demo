@@ -36,6 +36,11 @@ public class Product {
   @NotEmpty
   private int id;
 
+  @Column(name = "sku")
+  @NotEmpty
+  private String sku;
+
+
   @Column(name = "price")
   @NotEmpty
   private BigDecimal price;
@@ -51,7 +56,6 @@ public class Product {
   @ManyToOne
   @JoinColumn(name = "collection_id")
   private Collection collection;
-
 
   public String getName() {
     return this.name;
@@ -117,6 +121,14 @@ public class Product {
     return true;
   }
 
+  public String getSku() {
+    return sku;
+  }
+
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
+  
   public Category getCategory() {
     return this.category;
   }
@@ -124,13 +136,11 @@ public class Product {
   /**
    * Update the product category.
    * @param category new category.
-   * @return future proof and consistent with other setters
    */
-
-  public boolean setCategory(Category category) {
+  public void setCategory(Category category) {
     this.category = category;
-    return true;
   }
+
 
   public Collection getCollection() {
     return this.collection;
@@ -144,4 +154,5 @@ public class Product {
   public void setCollection(Collection collection) {
     this.collection = collection;
   }
+
 }

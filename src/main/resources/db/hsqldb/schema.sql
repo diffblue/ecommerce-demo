@@ -21,6 +21,7 @@ DROP TABLE products IF EXISTS;
 -- Create table to hold information about the products
 CREATE TABLE products (
     id      INTEGER IDENTITY PRIMARY KEY,
+    sku     VARCHAR(30) NOT NULL UNIQUE,
     category_id INTEGER NOT NULL,
     collection_id INTEGER NOT NULL,
     name    VARCHAR(30),

@@ -36,6 +36,11 @@ public class Product {
   @NotEmpty
   private int id;
 
+  @Column(name = "sku")
+  @NotEmpty
+  private String sku;
+
+
   @Column(name = "price")
   @NotEmpty
   private BigDecimal price;
@@ -120,6 +125,14 @@ public class Product {
     return true;
   }
 
+  public String getSku() {
+    return sku;
+  }
+
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
+  
   public Category getCategory() {
     return this.category;
   }
@@ -127,13 +140,11 @@ public class Product {
   /**
    * Update the product category.
    * @param category new category.
-   * @return future proof and consistent with other setters
    */
-
-  public boolean setCategory(Category category) {
+  public void setCategory(Category category) {
     this.category = category;
-    return true;
   }
+
 
   public Collection getCollection() {
     return this.collection;
@@ -142,12 +153,10 @@ public class Product {
   /**
    * Update the product collection.
    * @param collection new collection.
-   * @return future proof and consistent with other setters
    */
 
-  public boolean setCollection(Collection collection) {
+  public void setCollection(Collection collection) {
     this.collection = collection;
-    return true;
   }
 
   public String getPhoto() {
@@ -180,4 +189,5 @@ public class Product {
         && this.category.getId() == other.category.getId()
         && this.description == other.description && this.price == other.price);
   }
+
 }

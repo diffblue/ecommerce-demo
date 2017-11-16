@@ -1,7 +1,7 @@
-package com.diffblue.demo.ecommerce.Controllers;
+package com.diffblue.demo.ecommerce.controllers;
 
-import com.diffblue.demo.ecommerce.Cart;
-import com.diffblue.demo.ecommerce.CustomerForm;
+import com.diffblue.demo.ecommerce.forms.CustomerForm;
+import com.diffblue.demo.ecommerce.models.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -46,8 +46,9 @@ public class CheckoutController {
    * @return page for the output
    */
   @PostMapping("/checkout")
-  public String saveCustomerInformation(@Valid CustomerForm customerForm, BindingResult bindingResult,
-                                        Map<String, Object> model, HttpSession session) {
+  public String saveCustomerInformation(@Valid CustomerForm customerForm,
+                                          BindingResult bindingResult, Map<String, Object> model,
+                                            HttpSession session) {
     if (bindingResult.hasErrors()) {
       Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
       model.put("cart", shoppingCart);

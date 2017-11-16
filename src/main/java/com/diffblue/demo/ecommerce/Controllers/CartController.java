@@ -1,9 +1,9 @@
-package com.diffblue.demo.ecommerce.Controllers;
+package com.diffblue.demo.ecommerce.controllers;
 
 import com.diffblue.demo.ecommerce.Application;
-import com.diffblue.demo.ecommerce.Cart;
-import com.diffblue.demo.ecommerce.Product;
-import com.diffblue.demo.ecommerce.ProductRepository;
+import com.diffblue.demo.ecommerce.models.Cart;
+import com.diffblue.demo.ecommerce.models.Product;
+import com.diffblue.demo.ecommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

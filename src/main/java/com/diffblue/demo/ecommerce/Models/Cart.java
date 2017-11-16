@@ -1,4 +1,4 @@
-package com.diffblue.demo.ecommerce.Models;
+package com.diffblue.demo.ecommerce.models;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

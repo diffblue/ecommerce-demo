@@ -1,8 +1,8 @@
-package com.diffblue.demo.ecommerce.Repositories;
+package com.diffblue.demo.ecommerce.repositories;
 
 // Copyright 2016-2017 DiffBlue limited. All rights reserved.
 
-import com.diffblue.demo.ecommerce.Models.Product;
+import com.diffblue.demo.ecommerce.models.Product;
 import org.springframework.data.repository.Repository;
 
 public interface ProductRepository extends Repository<Product, Integer> {

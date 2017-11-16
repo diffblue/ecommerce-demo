@@ -1,11 +1,11 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.Forms;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
 
-public class Customer {
+public class CustomerForm {
 
   @NotEmpty
   private String firstName;
@@ -21,7 +21,7 @@ public class Customer {
   private String phoneNumber;
 
   @Valid
-  private Address shippingAddress;
+  private AddressForm shippingAddressForm;
 
   public String getFirstName() {
     return firstName;
@@ -47,12 +47,12 @@ public class Customer {
     this.email = email;
   }
 
-  public Address getShippingAddress() {
-    return shippingAddress;
+  public AddressForm getShippingAddress() {
+    return shippingAddressForm;
   }
 
-  public void setShippingAddress(Address shippingAddress) {
-    this.shippingAddress = shippingAddress;
+  public void setShippingAddress(AddressForm shippingAddressForm) {
+    this.shippingAddressForm = shippingAddressForm;
   }
 
   public String getPhoneNumber() {

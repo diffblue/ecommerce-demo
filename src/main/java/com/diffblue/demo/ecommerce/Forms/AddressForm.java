@@ -1,10 +1,10 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.Forms;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
-public class Address {
+public class AddressForm {
 
   private String company;
 

@@ -1,8 +1,7 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.Models;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Cart {

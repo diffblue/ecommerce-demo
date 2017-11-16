@@ -1,7 +1,10 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.Controllers;
 
 // Copyright 2016-2017 DiffBlue limited. All rights reserved.
 
+import com.diffblue.demo.ecommerce.Application;
+import com.diffblue.demo.ecommerce.Product;
+import com.diffblue.demo.ecommerce.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

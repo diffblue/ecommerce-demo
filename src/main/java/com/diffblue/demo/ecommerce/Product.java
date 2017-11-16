@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -46,6 +48,10 @@ public class Product {
   @Column(name = "description")
   @NotEmpty
   private String description;
+
+  @ManyToOne
+  @JoinColumn(name = "category_id")
+  private Category category;
 
   public String getName() {
     return this.name;
@@ -109,4 +115,18 @@ public class Product {
   public void setSku(String sku) {
     this.sku = sku;
   }
+  
+  public Category getCategory() {
+    return this.category;
+  }
+
+  /**
+   * Update the product category.
+   * @param category new category.
+   */
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
 }

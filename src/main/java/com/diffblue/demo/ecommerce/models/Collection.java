@@ -1,4 +1,4 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.models;
 
 // Copyright 2016-2017 DiffBlue limited. All rights reserved.
 
@@ -16,15 +16,15 @@ import javax.persistence.Table;
 
 
 /**
- * Internal representation of Product Categories.
+ * Internal representation of Product Collections.
  * A category has:
  *   id - unique auto-generated number
  *   name - unique not null category name
  */
 
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "collections")
+public class Collection {
 
   @Id
   @Column(name = "id")
@@ -36,7 +36,7 @@ public class Category {
   @NotEmpty
   private String name;
 
-  @OneToMany(mappedBy = "category")
+  @OneToMany(mappedBy = "collection")
   private List<Product> products;
 
 

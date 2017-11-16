@@ -1,4 +1,4 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.models;
 
 // Copyright 2016-2017 DiffBlue limited. All rights reserved.
 

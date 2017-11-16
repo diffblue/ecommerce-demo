@@ -1,10 +1,8 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.forms;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
-
-public class Address {
+public class AddressForm {
 
   private String company;
 
@@ -19,7 +17,6 @@ public class Address {
 
   @NotEmpty
   private String postcode;
-
 
   public String getCompany() {
     return company;

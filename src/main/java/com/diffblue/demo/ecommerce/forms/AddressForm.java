@@ -2,8 +2,6 @@ package com.diffblue.demo.ecommerce.forms;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
-
 public class AddressForm {
 
   private String company;

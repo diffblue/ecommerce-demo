@@ -8,15 +8,25 @@ CREATE TABLE categories (
     name    VARCHAR(30) NOT NULL UNIQUE,
 );
 
+DROP TABLE collections IF EXISTS;
+
+-- Create table to hold information about product categories
+CREATE TABLE collections (
+    id      INTEGER IDENTITY PRIMARY KEY,
+    name    VARCHAR(30) NOT NULL UNIQUE,
+);
+
 DROP TABLE products IF EXISTS;
 
 -- Create table to hold information about the products
 CREATE TABLE products (
     id      INTEGER IDENTITY PRIMARY KEY,
-    category_id INTEGER NOT NULL,
     sku     VARCHAR(30) NOT NULL UNIQUE,
-    name    VARCHAR(30) NOT NULL,
-    price   DECIMAL(20,2) NOT NULL,
-    description VARCHAR(30) NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+    category_id INTEGER NOT NULL,
+    collection_id INTEGER NOT NULL,
+    name    VARCHAR(30),
+    price   DECIMAL(20,2),
+    description VARCHAR(30),
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (collection_id) REFERENCES collections(id)
 );

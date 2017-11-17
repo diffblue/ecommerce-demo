@@ -53,6 +53,10 @@ public class Product {
   @JoinColumn(name = "category_id")
   private Category category;
 
+  @ManyToOne
+  @JoinColumn(name = "collection_id")
+  private Collection collection;
+
   public String getName() {
     return this.name;
   }
@@ -124,9 +128,22 @@ public class Product {
    * Update the product category.
    * @param category new category.
    */
-
   public void setCategory(Category category) {
     this.category = category;
+  }
+
+
+  public Collection getCollection() {
+    return this.collection;
+  }
+
+  /**
+   * Update the product collection.
+   * @param collection new collection.
+   */
+
+  public void setCollection(Collection collection) {
+    this.collection = collection;
   }
 
 }

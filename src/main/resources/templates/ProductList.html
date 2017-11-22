@@ -5,13 +5,13 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <h1>Product List</h1>
-        <p>The current product list is: </p>
-        <div class="table">
-            <div class="row" th:each="product : ${products}">
-                <div class="col-2"  th:text="${product.sku}"/>
-                <div class="col-4"><a th:href="@{/product/}+${product.id}" th:text="${product.name}"/></div>
-                <div class="col-2">£<span th:text="${product.price}"/></div>
+        <div class="row">
+            <div class="col-4" th:each="product : ${products}">
+                <div><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
+                <div th:text="${product.category.name}"/>
+                <div><a th:href="@{/product/}+${product.id}" th:text="${product.collection.name}"/></div>
+                <div>£<span th:text="${product.price}"/></div>
+                <br/>
             </div>
         </div>
     </div>

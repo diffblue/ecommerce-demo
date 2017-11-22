@@ -1,17 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Product Page</title>
+    <title>Product Page | 8-BLISS</title>
 </head>
 <body>
     <div layout:fragment="content">
-        <h1>Product Page</h1>
-        <p>Product sku: <span th:text="${product.sku}"/></p>
-        <p>Product name: <span th:text="${product.name}"/></p>
-        <p>Product price: <span th:text="${product.price}"/></p>
-        <p>Product category: <span th:text="${product.category.name}"/></p>
-        <p>Product category: <span th:text="${product.collection.name}"/></p>
-        <p>Product description: <span th:text="${product.description}"/></p>
+        <div class="row">
+            <div class="col-6"><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
+            <div class="col-6">
+                <div th:text="${product.collection.name}"/>
+                <div th:text="${product.name}"/>
+                <div th:text="${product.price}"/>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Add to basket</button>
+                <div>Description<br/><span th:text="${product.description}"/></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -57,6 +57,10 @@ public class Product {
   @JoinColumn(name = "collection_id")
   private Collection collection;
 
+  @Column(name = "photo")
+  @NotEmpty
+  private String photo;
+
   public String getName() {
     return this.name;
   }
@@ -144,6 +148,14 @@ public class Product {
 
   public void setCollection(Collection collection) {
     this.collection = collection;
+  }
+
+  public String getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
   }
 
 }

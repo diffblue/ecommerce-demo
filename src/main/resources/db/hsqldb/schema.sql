@@ -16,6 +16,14 @@ CREATE TABLE collections (
   name    VARCHAR(30) NOT NULL UNIQUE,
 );
 
+DROP TABLE collections IF EXISTS;
+
+-- Create table to hold information about product categories
+CREATE TABLE collections (
+    id      INTEGER IDENTITY PRIMARY KEY,
+    name    VARCHAR(30) NOT NULL UNIQUE,
+);
+
 DROP TABLE products IF EXISTS;
 
 -- Create table to hold information about the products

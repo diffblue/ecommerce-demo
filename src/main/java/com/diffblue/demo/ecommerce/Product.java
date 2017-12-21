@@ -68,15 +68,11 @@ public class Product {
   /**
    * Setter for name, ensure that the name is not blank.
    * @param newName update name to this.
-   * @return success (true) or failure (false).
    */
 
-  public boolean setName(String newName) {
-    if (newName.isEmpty()) {
-      return false;
-    } else {
+  public void setName(String newName) {
+    if (!newName.isEmpty()) {
       this.name = newName;
-      return true;
     }
   }
 
@@ -87,12 +83,10 @@ public class Product {
   /**
    * Update the ID, which must be PRODxxx (where x's are numbers)
    * @param newId update id to this.
-   * @return success (true) or failure (false)
    */
 
-  public boolean setId(int newId) {
+  public void setId(int newId) {
     this.id = newId;
-    return true;
   }
 
   public BigDecimal getPrice() {
@@ -105,9 +99,8 @@ public class Product {
    * @return future proof and consistent with other setters
    */
 
-  public boolean setPrice(BigDecimal price) {
+  public void setPrice(BigDecimal price) {
     this.price = price;
-    return true;
   }
 
   public String getDescription() {
@@ -117,12 +110,10 @@ public class Product {
   /**
    * Update the description.
    * @param description new description.
-   * @return future proof and consistent with other setters
    */
 
-  public boolean setDescription(String description) {
+  public void setDescription(String description) {
     this.description = description;
-    return true;
   }
 
   public String getSku() {
@@ -166,7 +157,7 @@ public class Product {
   public void setPhoto(String photo) {
     this.photo = photo;
   }
-
+  
   @Override
   public int hashCode() {
     return id;

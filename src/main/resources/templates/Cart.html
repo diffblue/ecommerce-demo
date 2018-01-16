@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Your cart | 8-BLISS</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <p class="col-12"><b>Your cart</b></p>
+        </div>
+        <div th:with="isCartEmpty = ${cart.products.size() == 0}">
+            <div th:if="${isCartEmpty}" class="row">
+                <div class="col-12">Your cart is empty. <a href="/ProductList">Start shopping.</a></div>
+            </div>
+            <div th:unless="${isCartEmpty}" class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row" th:each="cartItem : ${cart.products}">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img th:src="@{/images/}+${cartItem.key.photo}" th:alt="${cartItem.key.category.name}" width="100%"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <div><b th:text="${cartItem.key.collection.name}"></b></div>
+                                            <div th:text="${cartItem.key.name}"/>
+                                        </div>
+                                        <div class="col-4">
+                                            <div>£<span th:text="${cartItem.key.price}"/></div>
+                                            <div>
+                                                <form th:action="@{/updateCartItem}" method="post" class="form-inline">
+                                                    <div class="form-group">
+                                                        <label>Qty</label>
+                                                        <input min="1" name="quantity" type="number" class="form-control" th:value="${cartItem.value}"/>
+                                                        <input name="product_id" type="hidden" th:value="${cartItem.key.id}"/>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-link">Update</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <a th:href="@{/removeFromCart/}+${cartItem.key.id}">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12"><b>Cart Summary</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Subtotal:</div>
+                                <div class="col-6 text-right">£<span th:text="${cart.subtotal}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Checkout now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12"><a href="/ProductList">Continue shopping</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--Copyright 2016-2017 DiffBlue limited. All rights reserved.-->

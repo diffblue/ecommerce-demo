@@ -2,14 +2,21 @@
 
 Demo of a Java e-commerce web site using Spring Framework.
 
+Requirements:
+- Maven
+- Java 8
+
 To build type:
-  mvn compile
+  `mvn compile`
 
 To test type:
-  mvn test
+  `mvn test`
 
 To run type:
-  mvn spring-boot:run
+  `mvn spring-boot:run`
+
+When project is running, navigate to:
+ `localhost:8080`
 
 ## Contributing Notes
 

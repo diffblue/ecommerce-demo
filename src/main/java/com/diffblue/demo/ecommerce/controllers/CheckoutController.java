@@ -1,5 +1,7 @@
 package com.diffblue.demo.ecommerce.controllers;
 
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
+
 import com.diffblue.demo.ecommerce.forms.CustomerForm;
 import com.diffblue.demo.ecommerce.models.Cart;
 import org.springframework.beans.factory.annotation.Autowired;

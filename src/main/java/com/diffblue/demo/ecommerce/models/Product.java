@@ -1,6 +1,6 @@
 package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2017 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
 import org.hibernate.validator.constraints.NotEmpty;
 

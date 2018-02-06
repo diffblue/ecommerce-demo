@@ -1,14 +1,16 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.models;
+
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Cart {
 
   private Map<Product, Integer> cartItems;
   private BigDecimal subtotal;
+  private BigDecimal shipping;
 
   /**
    * Constructor.
@@ -16,6 +18,7 @@ public class Cart {
   public Cart() {
     cartItems = new HashMap<>();
     subtotal = new BigDecimal(0);
+    shipping = new BigDecimal("4.50");
   }
 
   /**
@@ -67,6 +70,14 @@ public class Cart {
         cartItems.replace(product, newQty);
       }
     }
+  }
+
+  public BigDecimal getShipping() {
+    return shipping;
+  }
+
+  public BigDecimal getTotal() {
+    return subtotal.add(shipping);
   }
 
 

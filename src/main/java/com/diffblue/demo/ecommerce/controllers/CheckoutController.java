@@ -1,6 +1,8 @@
 package com.diffblue.demo.ecommerce.controllers;
 
 import com.diffblue.demo.ecommerce.forms.AddressForm;
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
+
 import com.diffblue.demo.ecommerce.forms.CustomerForm;
 import com.diffblue.demo.ecommerce.forms.PaymentForm;
 import com.diffblue.demo.ecommerce.models.Address;

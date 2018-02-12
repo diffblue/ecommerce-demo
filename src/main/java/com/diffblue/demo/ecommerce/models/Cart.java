@@ -1,5 +1,7 @@
 package com.diffblue.demo.ecommerce.models;
 
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;

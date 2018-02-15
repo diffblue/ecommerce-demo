@@ -1,6 +1,6 @@
 package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2017 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -57,7 +57,7 @@ public class Order {
    * @param phoneNumber - customer phone number
    * @param shippingAddress - shipping address
    */
-  public Order(String orderRef, String firstName, String lastName,
+  public Order(String orderRef, String firstName, String lastName, 
                String email, String phoneNumber, Address shippingAddress) {
     this.orderRef = orderRef;
     this.firstName = firstName;

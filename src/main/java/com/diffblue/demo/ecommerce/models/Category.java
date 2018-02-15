@@ -1,6 +1,6 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2017 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -16,15 +16,15 @@ import javax.persistence.Table;
 
 
 /**
- * Internal representation of Product Collections.
+ * Internal representation of Product Categories.
  * A category has:
  *   id - unique auto-generated number
  *   name - unique not null category name
  */
 
 @Entity
-@Table(name = "collections")
-public class Collection {
+@Table(name = "categories")
+public class Category {
 
   @Id
   @Column(name = "id")
@@ -36,7 +36,7 @@ public class Collection {
   @NotEmpty
   private String name;
 
-  @OneToMany(mappedBy = "collection")
+  @OneToMany(mappedBy = "category")
   private List<Product> products;
 
 

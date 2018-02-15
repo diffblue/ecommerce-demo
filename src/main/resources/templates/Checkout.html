@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Checkout | 8-BLISS</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-8">
+                <form th:action="@{/checkout}" th:object="${customerForm}" method="post">
+                    <div class="row">
+                        <div class="col-12"><b>Customer information</b></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input th:field="*{email}" type="email" placeholder="Email" class="form-control" required="required"/>
+                            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12"><b>Shipping Address</b></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="First name" required="required"/>
+                            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+                        </div>
+                        <div class="col-6">
+                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="Last name" required="required"/>
+                            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input th:field="*{shippingAddress.company}" class="form-control" type="text" placeholder="Company"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.company')}" th:errors="*{shippingAddress.company}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input th:field="*{shippingAddress.addressLine}" class="form-control" type="text" placeholder="Address*" required="required"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.addressLine')}" th:errors="*{shippingAddress.addressLine}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input th:field="*{shippingAddress.city}" class="form-control" type="text" placeholder="City*" required="required"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.city')}" th:errors="*{shippingAddress.city}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <input th:field="*{shippingAddress.country}" class="form-control" type="text" placeholder="Country*"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.country')}" th:errors="*{shippingAddress.country}"/>
+                        </div>
+                        <div class="col-6">
+                            <input th:field="*{shippingAddress.postcode}" class="form-control" type="text" placeholder="Postcode*" required="required"/>
+                            <p th:if="${#fields.hasErrors('shippingAddress.postcode')}" th:errors="*{shippingAddress.postcode}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input th:field="*{phoneNumber}" class="form-control" type="text" placeholder="Phone*"/>
+                            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"/>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="/cart">Return to cart</a>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Continue to payment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="row" th:each="cartItem : ${cart.products}">
+                    <div class="col-3">
+                        <img th:src="@{/images/}+${cartItem.key.photo}" th:alt="${cartItem.key.category.name}" width="100%"/>
+                    </div>
+                    <div class="col-7">
+                        <div><span th:text="${cartItem.value}"/>x <b th:text="${cartItem.key.collection.name}"></b></div>
+                        <div th:text="${cartItem.key.name}"/>
+                    </div>
+                    <div class="col-2 text-right">
+                        <div>£<span th:text="${cartItem.key.price}"/></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Subtotal:</div>
+                    <div class="col-6 text-right">£<span th:text="${cart.subtotal}"/></div>
+                </div>
+                <div class="row">
+                    <div class="col-6">Shipping:</div>
+                    <div class="col-6 text-right">£<span th:text="${cart.shipping}"/></div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><b>Total:</b></div>
+                    <div class="col-6 text-right"><b>£<span th:text="${cart.total}"/></b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--Copyright 2016-2018 DiffBlue limited. All rights reserved.-->

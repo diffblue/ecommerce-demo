@@ -1,6 +1,6 @@
-package com.diffblue.demo.ecommerce;
+package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2017 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -156,6 +156,29 @@ public class Product {
 
   public void setPhoto(String photo) {
     this.photo = photo;
+  }
+  
+  @Override
+  public int hashCode() {
+    return id;
+  }
+
+  /**
+   * Update the product collection.
+   * @param obj new collection.
+   * @return future proof and consistent with other setters
+   */
+  @Override
+  public boolean equals(Object obj) {
+    boolean result = false;
+    if (obj == null) {
+      return result;
+    }
+    Product other = (Product) obj;
+    return (this.id == other.id && this.name == other.name
+        && this.collection.getId() == other.collection.getId()
+        && this.category.getId() == other.category.getId()
+        && this.description == other.description && this.price == other.price);
   }
 
 }

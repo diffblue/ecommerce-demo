@@ -20,7 +20,6 @@ public class AddressForm {
   @NotEmpty
   private String postcode;
 
-
   public String getCompany() {
     return company;
   }

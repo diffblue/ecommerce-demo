@@ -5,6 +5,7 @@ package com.diffblue.demo.ecommerce.repositories;
 import com.diffblue.demo.ecommerce.models.Product;
 import org.springframework.data.repository.Repository;
 
+
 public interface ProductRepository extends Repository<Product, Integer> {
 
   /**

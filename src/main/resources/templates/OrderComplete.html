@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Thank you | 8-BLISS</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-7">
+            <div><img th:src="@{/images/thank-you.png}" alt="Thank you" width="100%"/></div>
+            <p><b>Thank you for your order!</b></p>
+            <p>Order number is: <span th:text="${orderRef}"/></p>
+            <p>You will receive an email confirmation shortly at <span th:text="${email}"/></p>
+            <a href="/ProductList">Continue shopping.</a>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-12">
+                    <p><b>Questions?</b></p>
+                    <p><b>Call 020 3319 2181 <br/> or <br/> <a href="mailto:test@diffblue.com">Email us</a></b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<!--Copyright 2016-2018 DiffBlue limited. All rights reserved.-->

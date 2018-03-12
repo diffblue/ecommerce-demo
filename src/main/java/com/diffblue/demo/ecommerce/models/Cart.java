@@ -2,23 +2,22 @@ package com.diffblue.demo.ecommerce.models;
 
 // Copyright 2016-2018 DiffBlue limited. All rights reserved.
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cart {
 
   private Map<Product, Integer> cartItems;
-  private BigDecimal subtotal;
-  private BigDecimal shipping;
+  private double subtotal;
+  private double shipping;
 
   /**
    * Constructor.
    */
   public Cart() {
     cartItems = new HashMap<>();
-    subtotal = new BigDecimal(0);
-    shipping = new BigDecimal("4.50");
+    subtotal = 0;
+    shipping = 4.50;
   }
 
   /**
@@ -32,7 +31,7 @@ public class Cart {
     } else {
       cartItems.put(product, 1);
     }
-    this.subtotal = this.subtotal.add(product.getPrice());
+    this.subtotal = this.subtotal + product.getPrice();
   }
 
   public Map<Product, Integer> getProducts() {
@@ -43,11 +42,11 @@ public class Cart {
    * Get cart subtotal.
    * @return products subtotal
    */
-  public BigDecimal getSubtotal() {
+  public double getSubtotal() {
     return subtotal;
   }
 
-  public void setSubtotal(BigDecimal subtotal) {
+  public void setSubtotal(double subtotal) {
     this.subtotal = subtotal;
   }
 
@@ -60,9 +59,9 @@ public class Cart {
       int currQty = cartItems.get(product);
       int diff = newQty - currQty;
 
-      BigDecimal totalToUpdate = new BigDecimal(diff);
-      totalToUpdate = totalToUpdate.multiply(product.getPrice());
-      this.setSubtotal(this.subtotal.add(totalToUpdate));
+      double totalToUpdate = (double) diff;
+      totalToUpdate = totalToUpdate * product.getPrice();
+      this.setSubtotal(this.subtotal + totalToUpdate);
 
       if (newQty == 0) {
         cartItems.remove(product);
@@ -72,12 +71,12 @@ public class Cart {
     }
   }
 
-  public BigDecimal getShipping() {
+  public double getShipping() {
     return shipping;
   }
 
-  public BigDecimal getTotal() {
-    return subtotal.add(shipping);
+  public double getTotal() {
+    return subtotal + shipping;
   }
 
 

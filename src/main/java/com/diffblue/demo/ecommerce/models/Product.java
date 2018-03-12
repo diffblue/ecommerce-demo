@@ -4,7 +4,6 @@ package com.diffblue.demo.ecommerce.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,7 +42,7 @@ public class Product {
 
   @Column(name = "price")
   @NotEmpty
-  private BigDecimal price;
+  private double price;
 
   @Column(name = "description")
   @NotEmpty
@@ -89,7 +88,7 @@ public class Product {
     this.id = newId;
   }
 
-  public BigDecimal getPrice() {
+  public double getPrice() {
     return this.price;
   }
 
@@ -99,7 +98,7 @@ public class Product {
    * @return future proof and consistent with other setters
    */
 
-  public void setPrice(BigDecimal price) {
+  public void setPrice(double price) {
     this.price = price;
   }
 

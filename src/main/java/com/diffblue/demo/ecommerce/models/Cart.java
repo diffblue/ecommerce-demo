@@ -33,7 +33,7 @@ public class Cart {
 
   public void addProduct(Product product) {
     if (cartItems.get(product) != null) {
-      cartItems.put(product, cartItems.get(product) + 1);
+      cartItems.replace(product, cartItems.get(product) + 1);
     } else {
       cartItems.put(product, 1);
     }
@@ -108,6 +108,19 @@ public class Cart {
     return tax;
   }
 
+  /**
+  * Returns the first product in the cart with a quantity < 0.
+  * If cart contains no such products, null is returned.
+  */
+  public Product checkInvalid() {
+    for (Map.Entry<Product, Integer> item : cartItems.entrySet()) {
+      if (item.getValue() < 0) {
+        return item.getKey();
+      }
+    }
+    return null;
+  }
+  
   public double getShipping() {
     return shipping;
   }

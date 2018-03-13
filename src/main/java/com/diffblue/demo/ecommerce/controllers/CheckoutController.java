@@ -1,14 +1,18 @@
 package com.diffblue.demo.ecommerce.controllers;
 
-import com.diffblue.demo.ecommerce.forms.AddressForm;
 // Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
+import com.diffblue.demo.ecommerce.Application;
+import com.diffblue.demo.ecommerce.EmptyCartException;
+import com.diffblue.demo.ecommerce.InvalidCartItemException;
+import com.diffblue.demo.ecommerce.forms.AddressForm;
 import com.diffblue.demo.ecommerce.forms.CustomerForm;
 import com.diffblue.demo.ecommerce.forms.PaymentForm;
 import com.diffblue.demo.ecommerce.models.Address;
 import com.diffblue.demo.ecommerce.models.Cart;
 import com.diffblue.demo.ecommerce.models.Order;
 import com.diffblue.demo.ecommerce.models.OrderItem;
+import com.diffblue.demo.ecommerce.models.Product;
 import com.diffblue.demo.ecommerce.repositories.AddressRepository;
 import com.diffblue.demo.ecommerce.repositories.OrderItemRepository;
 import com.diffblue.demo.ecommerce.repositories.OrderRepository;
@@ -54,12 +58,23 @@ public class CheckoutController {
   @RequestMapping("/checkout")
   public String viewCheckoutPage(Map<String, Object> model, HttpSession session,
                                  CustomerForm customerForm) {
-    if (session.getAttribute("shoppingCart") != null) {
+    try {
+      if (session.getAttribute("shoppingCart") == null) {
+        throw new EmptyCartException(404, "Shopping Cart is empty");
+      }
       Cart shoppingCart = (Cart) session.getAttribute("shoppingCart");
+      Product item = shoppingCart.checkInvalid();
+      if (item != null) {
+        throw new InvalidCartItemException(
+          400,
+          "Shopping Cart contains an item with an invalid quantity",
+          item);
+      }
       model.put("cart", shoppingCart);
       return "Checkout";
-    } else {
-      return "redirect:/cart";
+    } catch (EmptyCartException | InvalidCartItemException e) {
+      Application.log.info(e.getMessage() + " - Aborting checkout");
+      return "redirect:/exception";
     }
   }
 

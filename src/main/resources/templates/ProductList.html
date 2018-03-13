@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Products | 8-BLISS</title>
+    <title th:text="'Products ' + (${category} ? '(' + ${category} + ')' :'') + ' | 8-BLISS'"/>
 </head>
 <body>
     <div layout:fragment="content">
-        <div class="row">
+        <div class="row" th:if="${products}" >
             <div class="col-4" th:each="product : ${products}">
                 <div><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
                 <div th:text="${product.category.name}"/>
@@ -14,6 +14,7 @@
                 <br/>
             </div>
         </div>
+        <div class="row" th:unless="${products}" th:text="'No products exist for category &quot;' + ${category} + '&quot;'"/>
     </div>
 </body>
 </html>

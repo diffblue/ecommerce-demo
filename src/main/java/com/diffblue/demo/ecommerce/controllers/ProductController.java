@@ -3,7 +3,9 @@ package com.diffblue.demo.ecommerce.controllers;
 // Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
 import com.diffblue.demo.ecommerce.Application;
+import com.diffblue.demo.ecommerce.models.Category;
 import com.diffblue.demo.ecommerce.models.Product;
+import com.diffblue.demo.ecommerce.repositories.CategoryRepository;
 import com.diffblue.demo.ecommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +22,12 @@ import java.util.Map;
 @Controller
 public class ProductController {
 
+  private final CategoryRepository categoryRepo;
   private final ProductRepository productRepo;
 
   @Autowired
-  public ProductController(ProductRepository productRepo2) {
+  public ProductController(CategoryRepository categoryRepo2, ProductRepository productRepo2) {
+    this.categoryRepo = categoryRepo2;
     this.productRepo = productRepo2;
   }
 
@@ -39,6 +43,25 @@ public class ProductController {
     Iterable<Product> allProducts = this.productRepo.findAll();
     Application.log.info("All Products as string: " + allProducts.toString());
     model.put("products", allProducts);
+    return "ProductList";
+  }
+
+  /**
+   * Get a list of products with the specified category.
+   * @param category the category to retrieve
+   * @param model where to put the list of product names (as Collection of strings)
+   * @return Page for the output
+   */
+
+  @RequestMapping("/ProductList/{category}")
+  public String productList(@PathVariable("category") String category, Map<String, Object> model) {
+    Category cat = this.categoryRepo.findByName(category);
+    if (cat != null) {
+      Iterable<Product> allProducts = this.productRepo.findByCategory(cat);
+      model.put("products", allProducts);
+    } else {
+      Application.log.info("No category entitled '" + category + "' exists.");
+    }
     return "ProductList";
   }
 

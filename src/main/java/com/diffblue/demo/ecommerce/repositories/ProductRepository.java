@@ -19,6 +19,8 @@ public interface ProductRepository extends Repository<Product, Integer> {
   
   Iterable<Product> findByCategory(Category category);
 
+  Iterable<Product> findByCategory(Category category);
+
   /**
    * Provides access to a given product information from the database.
    */

@@ -32,6 +32,7 @@ public class ProductController {
     this.productRepo = productRepo2;
   }
 
+
   /**
    * Get the full list of products.
    * @param model where to put the list of product names (as Collection of strings)

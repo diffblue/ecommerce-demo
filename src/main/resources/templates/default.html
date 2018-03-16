@@ -10,11 +10,63 @@
 
 <body>
 	<div id="wrapper">
+<<<<<<< HEAD
 		<th:block layout:replace="fragments/Navigation" />
 		<div class="container" layout:fragment="content">
 			<!--Page content goes here-->
 		</div>
 		<th:block layout:replace="fragments/Footer" />
+=======
+		<nav class="navbar navbar-default fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">
+						<img src="/images/logo_1.png" alt="8-BLISS" />
+					</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="/cart">My Cart</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container" layout:fragment="content">
+			<!--Page content goes here-->
+		</div>
+		<footer class="footer font-small pt-4 mt-4">
+			<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+				<div class="container">
+					<a class="navbar-brand" href="/">
+						<img src="/images/logo_1.png" alt="8-BLISS" />
+					</a>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav navbar-right">
+							<li class="nav-item">
+								<a class="nav-link" href="/ProductList/">All</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/ProductList/Apparel">Apparel</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/ProductList/Pins">Pins</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/ProductList/Stickers">Stickers</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/ProductList/Prints">Prints</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="py-1 text-center bg-dark text-muted">
+				Copyright 2016-2018 DiffBlue limited. All rights reserved.
+			</div>
+		</footer>
+>>>>>>> Improve the footer and the nav bar
 	</div>
 </body>
 

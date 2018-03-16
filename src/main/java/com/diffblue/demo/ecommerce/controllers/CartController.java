@@ -1,6 +1,6 @@
 package com.diffblue.demo.ecommerce.controllers;
 
-// Copyright 2016-2018 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 Diffblue limited. All rights reserved.
 
 import com.diffblue.demo.ecommerce.Application;
 import com.diffblue.demo.ecommerce.models.Cart;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -47,10 +48,11 @@ public class CartController {
    * @return Page for the output
    */
   @PostMapping("/addToCart")
-  public String addToCart(@ModelAttribute Product product, HttpSession session) {
+  public String addToCart(@ModelAttribute Product product, HttpSession session,
+                          @RequestParam String size) {
 
     Product prod = this.productRepo.findById(product.getId());
-
+    prod.setSize(size);
     if (prod != null) {
       Cart shoppingCart = getOrCreateSessionCart(session);
       shoppingCart.addProduct(prod);
@@ -65,9 +67,10 @@ public class CartController {
    * @param id product id
    * @return Page for the output
    */
-  @RequestMapping("/removeFromCart/{id}")
-  public String removeFromCart(@PathVariable("id") int id, HttpSession session) {
-    return this.updateCart(id, 0, session);
+  @RequestMapping("/removeFromCart/{id}/size/{size}")
+  public String removeFromCart(@PathVariable("id") int id, HttpSession session,
+                               @PathVariable("size") String size) {
+    return this.updateCart(id, 0, session, size);
   }
 
   /**
@@ -76,10 +79,10 @@ public class CartController {
    */
   @PostMapping("/updateCartItem")
   public String updateCartItem(HttpServletRequest request, HttpSession session) {
-
     int id = Integer.parseInt(request.getParameter("product_id"));
     int newQty = Integer.parseInt(request.getParameter("quantity"));
-    return this.updateCart(id, newQty, session);
+    String size = request.getParameter("size");
+    return this.updateCart(id, newQty, session, size);
   }
 
   /**
@@ -87,12 +90,12 @@ public class CartController {
    * @param productId product id, quantity new quantity, session - current session
    * @return Page for the output
    */
-  public String updateCart(int productId, int quantity, HttpSession session) {
+  public String updateCart(int productId, int quantity, HttpSession session, String size) {
     Product prod = this.productRepo.findById(productId);
     if (prod != null) {
       Cart shoppingCart = this.getSessionCart(session);
       if (shoppingCart != null) {
-        shoppingCart.updateProductQuantity(prod, quantity);
+        shoppingCart.updateProductQuantity(prod, quantity, size);
         session.setAttribute("shoppingCart",shoppingCart);
       }
     } else {

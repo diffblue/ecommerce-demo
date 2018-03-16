@@ -25,6 +25,7 @@
                                         <div class="col-6">
                                             <div><b th:text="${cartItem.key.collection.name}"></b></div>
                                             <div th:text="${cartItem.key.name}"/>
+                                            <div th:text="${cartItem.key.size}"/>
                                         </div>
                                         <div class="col-4">
                                             <div>£<span th:text="${cartItem.key.price}"/></div>
@@ -34,6 +35,7 @@
                                                         <label>Qty</label>
                                                         <input min="1" name="quantity" type="number" class="form-control" th:value="${cartItem.value}"/>
                                                         <input name="product_id" type="hidden" th:value="${cartItem.key.id}"/>
+                                                        <input name="size" type="hidden" th:value="${cartItem.key.size}"/>
                                                     </div>
                                                     <button type="submit" class="btn btn-link">Update</button>
                                                 </form>
@@ -42,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <a th:href="@{/removeFromCart/}+${cartItem.key.id}">Remove</a>
+                                    <a th:href="@{'/removeFromCart/' + ${cartItem.key.id} + '/size/' + ${cartItem.key.size}}">Remove</a>
                                 </div>
                             </div>
                         </div>
@@ -68,4 +70,4 @@
     </div>
 </body>
 </html>
-<!--Copyright 2016-2018 DiffBlue limited. All rights reserved.-->
+<!--Copyright 2016-2018 Diffblue limited. All rights reserved.-->

@@ -1,4 +1,4 @@
--- Copyright 2016-2018 Diffblue limited. All rights reserved.
+-- Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
 DROP TABLE categories IF EXISTS;
 

@@ -1,4 +1,4 @@
--- Copyright 2016-2018 DiffBlue limited. All rights reserved.
+-- Copyright 2016-2018 Diffblue limited. All rights reserved.
 
 DROP TABLE categories IF EXISTS;
 
@@ -35,6 +35,7 @@ CREATE TABLE products (
   name VARCHAR(30),
   price DECIMAL(20,2),
   description VARCHAR(500),
+  size VARCHAR(500),
   photo VARCHAR(500),
   FOREIGN KEY (category_id) REFERENCES categories(id),
   FOREIGN KEY (collection_id) REFERENCES collections(id)

@@ -13,6 +13,11 @@
                 <div th:text="${product.price}"/>
                 <form th:action="@{/addToCart}" th:object="${product}" method="post">
                     <input type="hidden" th:field="*{id}"/>
+                      <select name="size" required="required">
+                        <option value="">-- Please select a size --</option>
+                        <option value="Child">Child</option>
+                        <option value="Adult">Adult</option>
+                      </select>
                     <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Add to basket</button>
                 </form>
                 <div>Description<br/><span th:text="${product.description}"/></div>
@@ -21,4 +26,4 @@
     </div>
 </body>
 </html>
-<!--Copyright 2016-2018 DiffBlue limited. All rights reserved.-->
+<!--Copyright 2016-2018 Diffblue limited. All rights reserved.-->

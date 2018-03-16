@@ -1,6 +1,6 @@
 package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2018 DiffBlue limited. All rights reserved.
+// Copyright 2016-2018 Diffblue limited. All rights reserved.
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -47,6 +47,9 @@ public class Product {
   @Column(name = "description")
   @NotEmpty
   private String description;
+
+  @Column(name = "size")
+  private String size;
 
   @ManyToOne
   @JoinColumn(name = "category_id")
@@ -156,6 +159,14 @@ public class Product {
   public void setPhoto(String photo) {
     this.photo = photo;
   }
+
+  public String getSize() {
+    return size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
   
   @Override
   public int hashCode() {
@@ -174,7 +185,7 @@ public class Product {
       return result;
     }
     Product other = (Product) obj;
-    return (this.id == other.id && this.name == other.name
+    return (this.id == other.id && this.name == other.name && this.size.equals(other.size)
         && this.collection.getId() == other.collection.getId()
         && this.category.getId() == other.category.getId()
         && this.description == other.description && this.price == other.price);

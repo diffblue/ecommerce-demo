@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <title th:text="${title}">Title post</title>
+    <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<table>
+
+    <tr>
+        <td ><b>status</b></td>
+        <td th:text="${status}">status</td>
+    </tr>
+    <tr>
+        <td ><b>error</b></td>
+        <td th:text="${error}">error</td>
+    </tr>
+    <tr>
+        <td ><b>message</b></td>
+        <td th:text="${message}">message</td>
+    </tr>
+    <tr>
+        <td ><b>timestamp</b></td>
+        <td th:text="${timestamp}">timestamp</td>
+    </tr>
+    <tr>
+        <td ><b>path</b></td>
+        <td th:text="${path}">path</td>
+    </tr>
+    <tr>
+        <td ><b>What you can do?</b></td>
+        <td th:text="${solution}">solution</td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+
+<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->

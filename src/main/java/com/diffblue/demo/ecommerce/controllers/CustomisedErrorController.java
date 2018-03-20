@@ -50,4 +50,10 @@ public class CustomisedErrorController implements ErrorController {
             includeStackTrace);
     return errormap;
   }
+
+  @RequestMapping("/exception")
+  public String customException(Model model, HttpServletRequest request) {
+    return "CustomisedException";
+  }
+
 }

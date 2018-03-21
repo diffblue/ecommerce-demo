@@ -1,0 +1,22 @@
+buildCmd: 'mvn compile'
+testCmd: 'mvn test'
+phases:
+    -
+        timeout: 3600
+        cbmcArguments:
+            classpath: /tools/cbmc/models.jar
+            string-max-length: 300
+            string-max-input-length: 30
+            unwind: 2
+            java-max-input-tree-depth: 5
+            java-max-input-array-length: 1
+            java-max-vla-length: 1
+            depth: false
+            java-throw-runtime-exceptions: true
+            java-external-code-action: mock
+    -
+        timeout: 5
+    -
+        timeout: 5
+skipVerification: false
+ignoreExistingCoverage: true

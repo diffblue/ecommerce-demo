@@ -198,7 +198,7 @@ public class CartControllerTest {
         org.mockito.Mockito.when(com_diffblue_demo_tdd_repositories_ProductRepository_iter.findById(org.mockito.Matchers.anyInt())).thenAnswer(com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_answer_object);
 
       /* Act */
-      thrown.expect(NullPointerException.class);
+      thrown.expect(IllegalArgumentException.class);
       retval = param_7.addProductToCart(productParam, cartItems);
 
       /* Method return type is void, or not expected to return */

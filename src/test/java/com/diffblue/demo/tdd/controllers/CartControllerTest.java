@@ -230,7 +230,7 @@ public class CartControllerTest {
       Reflector.setField(mock_instance1, "description", "");
       Reflector.setField(mock_instance1, "price", 0.0);
       Reflector.setField(mock_instance1, "id", 0);
-      Reflector.setField(mock_instance1, "name", "A");
+      Reflector.setField(mock_instance1, "name", "");
       final java.util.ArrayList<com.diffblue.demo.tdd.models.Product> com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_answer_list = new java.util.ArrayList<com.diffblue.demo.tdd.models.Product>();
       final java.util.ArrayList<Object[]> com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_expectation_list = new java.util.ArrayList<Object[]>();
       final com.diffblue.deeptestutils.IterAnswer com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_answer_object = new com.diffblue.deeptestutils.IterAnswer<com.diffblue.demo.tdd.models.Product> ("com.diffblue.demo.tdd.repositories.ProductRepository", "findById", com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_answer_list, com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_expectation_list);
@@ -242,9 +242,9 @@ public class CartControllerTest {
       com.diffblue.demo.tdd.repositories.ProductRepository productRepository = (com.diffblue.demo.tdd.repositories.ProductRepository) org.mockito.Mockito.mock(com.diffblue.demo.tdd.repositories.ProductRepository.class);
       Reflector.setField(param_8, "productRepo", productRepository);
       com_diffblue_demo_tdd_repositories_ProductRepository_instances.add(productRepository);
-      String productParam = "7";
+      String productParam = "0";
       java.util.HashMap<Integer, Integer> cartItems = new java.util.HashMap<Integer, Integer>();
-      cartItems.put(7, 0);
+      cartItems.put(0, 2);
 
       for(com.diffblue.demo.tdd.repositories.ProductRepository com_diffblue_demo_tdd_repositories_ProductRepository_iter : com_diffblue_demo_tdd_repositories_ProductRepository_instances)
         org.mockito.Mockito.when(com_diffblue_demo_tdd_repositories_ProductRepository_iter.findById(org.mockito.Matchers.anyInt())).thenAnswer(com_diffblue_demo_tdd_repositories_ProductRepository_findById_int_answer_object);
@@ -256,7 +256,7 @@ public class CartControllerTest {
       /* Assert result */
       Assert.assertNotNull(retval);
       java.util.HashMap<Integer, Integer> hashMap = new java.util.HashMap<Integer, Integer>();
-      hashMap.put(7, 1);
+      hashMap.put(0, 3);
       Assert.assertEquals(hashMap, retval);
     }
   }

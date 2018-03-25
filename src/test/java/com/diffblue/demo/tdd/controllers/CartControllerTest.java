@@ -87,11 +87,8 @@ public class CartControllerTest {
       java.util.HashMap<Integer, Integer> cartItems = null;
 
       /* Act */
+      thrown.expect(IllegalArgumentException.class);
       retval = param_2.addProductToCart(productParam, cartItems);
-    }
-    {
-      /* Assert result */
-      Assert.assertEquals(null, retval);
     }
   }
 }

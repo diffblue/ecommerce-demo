@@ -43,6 +43,7 @@ public class CartController {
 				int newCount = 1;
 				Integer found = cartItems.get(product.getId());
 				if (found != null) {
+					assert (found > 0);
 					newCount += found;
 					cartItems.remove(productId);
 				}

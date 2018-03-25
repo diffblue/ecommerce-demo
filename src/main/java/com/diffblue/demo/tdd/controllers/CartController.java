@@ -35,9 +35,15 @@ public class CartController {
 			HashMap<Integer, Integer> cartItems) throws IllegalArgumentException {
 		if (productParam == null || cartItems == null)
 			throw new IllegalArgumentException();
+		try {
+			int productId = Integer.parseInt(productParam);
+			Product product = this.productRepo.findById(productId);
 
-        // TBD
+			// TBD
 
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("Invalid product id: " + productParam);
+		}
 		return cartItems;
 	}
 }

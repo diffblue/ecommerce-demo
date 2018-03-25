@@ -107,14 +107,10 @@ public class CartControllerTest {
       Reflector.setField(param_4, "productRepo", null);
       String productParam = "";
       java.util.HashMap<Integer, Integer> cartItems = new java.util.HashMap<Integer, Integer>();
+
       /* Act */
+      thrown.expect(IllegalArgumentException.class);
       retval = param_4.addProductToCart(productParam, cartItems);
-    }
-    {
-      /* Assert result */
-      Assert.assertNotNull(retval);
-      java.util.HashMap<Integer, Integer> hashMap = new java.util.HashMap<Integer, Integer>();
-      Assert.assertEquals(hashMap, retval);
     }
   }
 }

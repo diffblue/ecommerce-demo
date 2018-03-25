@@ -39,6 +39,7 @@ public class CartController {
 			int productId = Integer.parseInt(productParam);
 			Product product = this.productRepo.findById(productId);
 			if (product != null) {
+				assert (productId == product.getId()); // assume that Spring works correctly
 				int newCount = 1;
 				Integer found = cartItems.get(product.getId());
 				if (found != null) {

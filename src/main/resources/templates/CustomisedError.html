@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
+<head>
+    <title>Game Over</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <label>Player One</label>
+    <label>Status: </label>
+    <label th:text="${status}">status</label>
+    <div>
+        <div class="col"><img class="Centered" src="/images/game_over_404.png" alt="Game Over"/></div>
+        <div class="col"><a href="/">Insert Coin To Continue</a></div>
+        <div class="col"><img src="/images/coin.png" alt="Game Over"/></div>
+    </div>
+    <table>
+        <tr>
+            <td ><b>error</b></td>
+            <td th:text="${error}">error</td>
+        </tr>
+        <tr>
+            <td ><b>message</b></td>
+            <td th:text="${message}">message</td>
+        </tr>
+        <tr>
+            <td ><b>timestamp</b></td>
+            <td th:text="${timestamp}">timestamp</td>
+        </tr>
+        <tr>
+            <td ><b>path</b></td>
+            <td th:text="${path}">path</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
+<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->

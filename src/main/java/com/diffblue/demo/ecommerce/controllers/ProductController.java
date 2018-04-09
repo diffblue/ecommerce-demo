@@ -3,6 +3,7 @@ package com.diffblue.demo.ecommerce.controllers;
 // Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
 import com.diffblue.demo.ecommerce.Application;
+import com.diffblue.demo.ecommerce.InvalidCategoryException;
 import com.diffblue.demo.ecommerce.models.Category;
 import com.diffblue.demo.ecommerce.models.Product;
 import com.diffblue.demo.ecommerce.repositories.CategoryRepository;
@@ -56,13 +57,18 @@ public class ProductController {
   @RequestMapping("/ProductList/{category}")
   public String productList(@PathVariable("category") String category, Map<String, Object> model) {
     Category cat = this.categoryRepo.findByName(category);
-    if (cat != null) {
-      Iterable<Product> allProducts = this.productRepo.findByCategory(cat);
-      model.put("products", allProducts);
-    } else {
-      Application.log.info("No category entitled '" + category + "' exists.");
+    try {
+      if (cat != null) {
+        Iterable<Product> allProducts = this.productRepo.findByCategory(cat);
+        model.put("products", allProducts);
+        return "ProductList";
+      } else {
+        throw new InvalidCategoryException(404, "No category entitled '" + category + "' exists.");
+      }
+    } catch (InvalidCategoryException e) {
+      Application.log.info(e.getMessage());
+      return "redirect:/exception";
     }
-    return "ProductList";
   }
 
   /**

@@ -33,10 +33,11 @@
                                                 <form th:action="@{/updateCartItem}" method="post" class="form-inline">
                                                     <div class="form-group">
                                                         <label>Qty</label>
-                                                        <input min="1" name="quantity" type="number" class="form-control" th:value="${cartItem.value}"/>
+                                                        <input name="quantity" type="number" class="form-control" th:value="${cartItem.value}"/>
                                                         <input name="product_id" type="hidden" th:value="${cartItem.key.id}"/>
                                                         <input name="size" type="hidden" th:value="${cartItem.key.size}"/>
                                                     </div>
+                                                    <label style="color:red;" th:if="${cartItem.value &lt; 0}">Desired quantity is invalid</label>
                                                     <button type="submit" class="btn btn-link">Update</button>
                                                 </form>
                                             </div>
@@ -52,13 +53,14 @@
                             <div class="row">
                                 <div class="col-12"><b>Cart Summary</b></div>
                             </div>
-                            <div class="row">
+                            <div class="row" th:unless="${cart.checkInvalid()}">
                                 <div class="col-6">Subtotal:</div>
                                 <div class="col-6 text-right">£<span th:text="${cart.subtotal}"/></div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a href="/checkout" class="btn btn-primary btn-lg btn-block">Checkout now</a>
+                                    <a href="/checkout" class="btn btn-primary btn-lg btn-block" th:unless="${cart.checkInvalid()}">Checkout now</a>
+                                    <label class="btn btn-primary btn-lg btn-block disabled" th:if="${cart.checkInvalid()}">Unable to Checkout</label>
                                 </div>
                             </div>
                         </div>

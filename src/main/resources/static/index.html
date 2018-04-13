@@ -3,10 +3,20 @@
   <head>
     <title>8-BLISS</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-  <div class="container-fluid">
-    <a href="/"><a href="/"><img src="/images/logo_1.png" alt="8-BLISS"/></a>
+  <div id="wrapper">
+    <nav class="navbar navbar-default fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img src="/images/logo_1.png" alt="8-BLISS"/></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/cart">My Cart</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
       <div class="row">
         <div class="col-12"><a href="/ProductList/Stickers"><img src="/images/home_new.png" alt="New! Vinyl Stickers" width="100%"/></a></div>
@@ -17,14 +27,19 @@
             <div class="col-3"><a href="/ProductList/Pins"><img src="/images/home_enamel.png" alt="Enamel Pins" width="100%"/></a></div>
             <div class="col-6"><a href="/ProductList/Prints"><img src="/images/home_art_prints.png" alt="Art Prints" width="100%"/></a></div>
           </div>
+          </div>
         </div>
       </div>
     </div>
     <footer class="page-footer font-small pt-4 mt-4">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+         <div class="container">
             <a class="navbar-brand" href="/"><img src="/images/logo_1.png" alt="8-BLISS"/></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ProductList">All</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ProductList/Apparel">Apparel</a>
                     </li>
@@ -39,6 +54,7 @@
                     </li>
                 </ul>
             </div>
+        </div>
         </nav>
         <div class="py-1 text-center bg-dark text-muted">
           Copyright 2016-2018 Diffblue Limited. All rights reserved.

@@ -102,7 +102,7 @@ public class Cart {
    */
   public double checkTax(Product product, double productTotal) {
     Category cateory = product.getCategory();
-    if (!"Child".equals(product.getSize()) && "Apparel".equals(cateory.getName()) ) {
+    if (!("Child".equals(product.getSize()) && "Apparel".equals(cateory.getName()))) {
       this.tax = this.tax + (productTotal * taxRate);
     }
     return tax;

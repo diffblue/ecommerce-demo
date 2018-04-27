@@ -3,7 +3,7 @@ testCmd: mvn test
 ignoreExistingCoverage: true
 phases:
 -
-  timeout: 300
+  timeout: 2400
   cbmcArguments:
     depth: false
     unwind: 2
@@ -14,7 +14,7 @@ phases:
     java-max-input-array-length: 3
     string-printable: true
 -
-  timeout: 300
+  timeout: 2400
   cbmcArguments:
     depth: false
     unwind: 2
@@ -26,7 +26,7 @@ phases:
     string-printable: false
     java-throw-runtime-exceptions: false
 -
-  timeout: 300
+  timeout: 2400
   cbmcArguments:
     depth: false
     unwind: 1

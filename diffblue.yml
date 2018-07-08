@@ -1,1 +1,18 @@
-testCmd: mvn test 
+ignoreExistingCoverage: true
+cbmcArguments:
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    unwind: 1
+    depth: false
+-
+  timeout: 120
+  cbmcArguments:
+    unwind: 2
+    depth: false
+-
+  timeout: 300
+  cbmcArguments:
+    unwind: 5
+    depth: false

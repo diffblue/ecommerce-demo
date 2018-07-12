@@ -29,7 +29,7 @@ phases:
   timeout: 180
   cbmcArguments:
     depth: false
-    unwind: 2
+    unwind: 3
     classpath: '/tools/cbmc/models.jar:.'
     string-max-length: 400
     string-max-input-length: 100

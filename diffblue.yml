@@ -3,30 +3,7 @@ testCmd: mvn test
 ignoreExistingCoverage: true
 phases:
 -
-  timeout: 2400
-  cbmcArguments:
-    depth: false
-    unwind: 2
-    classpath: '.'
-    string-max-length: 300
-    string-max-input-length: 10
-    java-max-vla-length: 3
-    java-max-input-array-length: 3
-    string-printable: true
--
-  timeout: 2400
-  cbmcArguments:
-    depth: false
-    unwind: 2
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-    string-max-length: 400
-    string-max-input-length: 100
-    java-max-vla-length: 20
-    java-max-input-array-length: 20
-    string-printable: false
-    java-throw-runtime-exceptions: false
--
-  timeout: 2400
+  timeout: 180
   cbmcArguments:
     depth: false
     unwind: 1
@@ -36,4 +13,28 @@ phases:
     java-max-vla-length: 10
     java-max-input-array-length: 10
     string-printable: false
-    java-throw-runtime-exceptions: true
+    java-throw-runtime-exceptions: false
+-
+  timeout: 180
+  cbmcArguments:
+    depth: false
+    unwind: 2
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    string-max-length: 300
+    string-max-input-length: 10
+    java-max-vla-length: 10
+    java-max-input-array-length: 10
+    string-printable: false
+-
+  timeout: 180
+  cbmcArguments:
+    depth: false
+    unwind: 2
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    string-max-length: 400
+    string-max-input-length: 100
+    java-max-vla-length: 20
+    java-max-input-array-length: 20
+    string-printable: false
+    java-external-code-action: 'mock'
+    java-throw-runtime-exceptions: false

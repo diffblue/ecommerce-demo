@@ -30,7 +30,7 @@ phases:
   cbmcArguments:
     depth: false
     unwind: 2
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    classpath: '/tools/cbmc/models.jar:.'
     string-max-length: 400
     string-max-input-length: 100
     java-max-vla-length: 20

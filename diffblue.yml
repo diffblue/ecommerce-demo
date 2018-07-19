@@ -1,4 +1,6 @@
-testCmd: mvn test 
+testCmd: mvn test
+cbmcArguments:
+  java-assume-inputs-non-null: true
 phases:
 -
   timeout: 60

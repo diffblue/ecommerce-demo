@@ -63,49 +63,6 @@ public class CartController {
   }
 
   /**
-   * Remove a given product from the cart.
-   * @param id product id
-   * @return Page for the output
-   */
-  @RequestMapping("/removeFromCart/{id}/size/{size}")
-  public String removeFromCart(@PathVariable("id") int id, HttpSession session,
-                               @PathVariable("size") String size) {
-    return this.updateCart(id, 0, session, size);
-  }
-
-  /**
-   * Update a given product quantity in the cart.
-   * @param request http request, session current http session
-   */
-  @PostMapping("/updateCartItem")
-  public String updateCartItem(HttpServletRequest request, HttpSession session) {
-    int id = Integer.parseInt(request.getParameter("product_id"));
-    int newQty = Integer.parseInt(request.getParameter("quantity"));
-    String size = request.getParameter("size");
-    return this.updateCart(id, newQty, session, size);
-  }
-
-  /**
-   * Update a given product quantity in the cart.
-   * @param productId product id, quantity new quantity, session - current session
-   * @return Page for the output
-   */
-  public String updateCart(int productId, int quantity, HttpSession session, String size) {
-    Product prod = this.productRepo.findById(productId);
-    if (prod != null) {
-      Cart shoppingCart = this.getSessionCart(session);
-      if (shoppingCart != null) {
-        shoppingCart.updateProductQuantity(prod, quantity, size);
-        session.setAttribute("shoppingCart",shoppingCart);
-      }
-    } else {
-      Application.log.info("Unknown product id provided: " + productId);
-    }
-    return "redirect:/cart";
-  }
-
-
-  /**
    * Get cart in current session.
    * @param session - current session
    * @return Current session if set, null otherwise

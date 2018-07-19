@@ -1,1 +1,8 @@
 testCmd: mvn test 
+phases:
+-
+  timeout: 60
+-
+  timeout: 90
+-
+  timeout: 120

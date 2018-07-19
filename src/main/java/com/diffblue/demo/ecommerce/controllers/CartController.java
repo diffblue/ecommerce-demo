@@ -92,7 +92,7 @@ public class CartController {
    * @return Page for the output
    */
   public String updateCart(int productId, int quantity, HttpSession session, String size) {
-    if (quantity < 1) {
+    if (quantity < 0) {
       throw new IllegalArgumentException("Cannot have a negative quantity, requested: " + quantity);
     }
     Product prod = this.productRepo.findById(productId);

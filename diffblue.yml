@@ -2,6 +2,7 @@ cbmcArguments:
   classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
   depth: false
   slice-function-calls: org\.slf4j\.Logger.*
+  java-external-code-action: 'mock-non-jdk'
 phases:
 -
   timeout: 300

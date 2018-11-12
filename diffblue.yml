@@ -19,7 +19,11 @@ units:
       - dir: target/classes
         file: com/diffblue/demo/ecommerce/models/Product.class
         sourceDir: src/main/java
-        sourceFile: com/diffblue/demo/ecommerce/models/Category.java 
+        sourceFile: com/diffblue/demo/ecommerce/models/Category.java
+      - dir: target/classes
+        file: com/diffblue/demo/ecommerce/models/Cart.class
+        sourceDir: src/main/java
+        sourceFile: com/diffblue/demo/ecommerce/models/Cart.java
 phases:
 -
  timeout: 300

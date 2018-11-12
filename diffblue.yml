@@ -7,19 +7,19 @@ units:
       file: com/diffblue/demo/ecommerce/controllers/CartController.class
       sourceDir: src/main/java
       sourceFile: com/diffblue/demo/ecommerce/controllers/CartController.java
-    - context:
-      - dir: target/classes
-        file: com/diffblue/demo/ecommerce/repositories/ProductRepository.class
-        sourceDir: src/main/java
-        sourceFile: com/diffblue/demo/ecommerce/repositories/ProductRepository.java 
-      - dir: target/classes
-        file: com/diffblue/demo/ecommerce/models/Category.class
-        sourceDir: src/main/java
-        sourceFile: com/diffblue/demo/ecommerce/models/Category.java
-      - dir: target/classes
-        file: com/diffblue/demo/ecommerce/models/Product.class
-        sourceDir: src/main/java
-        sourceFile: com/diffblue/demo/ecommerce/models/Category.java 
+      - context:
+        - dir: target/classes
+          file: com/diffblue/demo/ecommerce/repositories/ProductRepository.class
+          sourceDir: src/main/java
+          sourceFile: com/diffblue/demo/ecommerce/repositories/ProductRepository.java 
+        - dir: target/classes
+          file: com/diffblue/demo/ecommerce/models/Category.class
+          sourceDir: src/main/java
+          sourceFile: com/diffblue/demo/ecommerce/models/Category.java
+        - dir: target/classes
+          file: com/diffblue/demo/ecommerce/models/Product.class
+          sourceDir: src/main/java
+          sourceFile: com/diffblue/demo/ecommerce/models/Category.java 
 phases:
 -
  timeout: 300

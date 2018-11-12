@@ -4,7 +4,7 @@ cbmcArguments:
 units:
   - target:
     - dir: target/classes
-      file: com/diffblue/demo/ecommerce/controllers/CartController.class.class
+      file: com/diffblue/demo/ecommerce/controllers/CartController.class
       sourceDir: src/main/java
       sourceFile: com/diffblue/demo/ecommerce/controllers/CartController.java 
 phases:

@@ -6,7 +6,12 @@ units:
     - dir: target/classes
       file: com/diffblue/demo/ecommerce/controllers/CartController.class
       sourceDir: src/main/java
-      sourceFile: com/diffblue/demo/ecommerce/controllers/CartController.java 
+      sourceFile: com/diffblue/demo/ecommerce/controllers/CartController.java
+    - context:
+      - dir: target/classes
+        file: com/diffblue/demo/ecommerce/repositories/ProductRepository.class
+        sourceDir: src/main/java
+        sourceFile: com/diffblue/demo/ecommerce/repositories/ProductRepository.java 
 phases:
 -
  timeout: 300

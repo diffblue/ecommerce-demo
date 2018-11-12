@@ -7,7 +7,7 @@ units:
       file: com/diffblue/demo/ecommerce/controllers/CartController.class
       sourceDir: src/main/java
       sourceFile: com/diffblue/demo/ecommerce/controllers/CartController.java
-      - context:
+      context:
         - dir: target/classes
           file: com/diffblue/demo/ecommerce/repositories/ProductRepository.class
           sourceDir: src/main/java

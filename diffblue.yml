@@ -30,16 +30,12 @@ phases:
  cbmcArguments:
    java-assume-inputs-non-null: true
    max-nondet-array-length: 10
-   do-not-test-methods-with-access: [ private ]
-   cover-function-only: false
    unwind: 1
 -
  timeout: 300
  cbmcArguments:
    java-assume-inputs-non-null: true
    max-nondet-array-length: 20
-   do-not-test-methods-with-access: [ private ]
-   cover-function-only: false
    unwind: 3
 -
  timeout: 300

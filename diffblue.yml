@@ -1,10 +1,23 @@
-testCmd: mvn test
+# Tested on Deeptest release 1.10.0
 cbmcArguments:
-  java-assume-inputs-non-null: true
+  depth: false
 phases:
 -
-  timeout: 60
--
-  timeout: 90
+  timeout: 120
+  cbmcArguments:
+    unwind: 1
+    string-input-value: [Small, Medium, Large]
+    string-non-empty: true
+    java-assume-inputs-non-null: true
 -
   timeout: 120
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 3
+    string-input-value: [Small, Medium, Large]
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    unwind: 6

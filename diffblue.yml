@@ -1,23 +1,25 @@
 # Tested on Deeptest release 1.10.0
 cbmcArguments:
   depth: false
+  java-external-code-action: 'mock'
 phases:
 -
-  timeout: 120
+  timeout: 300
   cbmcArguments:
     unwind: 1
     string-input-value: [Small, Medium, Large]
     string-non-empty: true
     java-assume-inputs-non-null: true
 -
-  timeout: 120
+  timeout: 300
   cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
     max-nondet-array-length: 20
-    unwind: 3
-    string-input-value: [Small, Medium, Large]
-    string-non-empty: true
-    java-assume-inputs-non-null: true
+    unwind: 2
 -
-  timeout: 120
+  timeout: 300
   cbmcArguments:
-    unwind: 6
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3

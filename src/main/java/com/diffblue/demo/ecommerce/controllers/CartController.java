@@ -63,6 +63,17 @@ public class CartController {
   }
 
   /**
+   * Update a given product quantity in the cart.
+   * @param productId product id, quantity new quantity, session - current session
+   * @return Page for the output
+   */
+  public String updateCart(int productId, int quantity, HttpSession session, String size) {
+    Product prod = this.productRepo.findById(productId);
+    //TODO: Implement this
+    return "redirect:/cart";
+  }
+
+  /**
    * Get cart in current session.
    * @param session - current session
    * @return Current session if set, null otherwise

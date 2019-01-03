@@ -4,22 +4,24 @@ cbmcArguments:
   java-external-code-action: 'mock'
 phases:
 -
-  timeout: 300
+  timeout: 1200
   cbmcArguments:
     unwind: 1
-    string-input-value: [Small, Medium, Large]
     string-non-empty: true
     java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    java-test-input-factory-bmc-max-mutators: 4
 -
-  timeout: 300
+  timeout: 1200
   cbmcArguments:
-    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
     max-nondet-array-length: 20
     unwind: 2
+    java-test-input-factory-bmc-max-mutators: 4
 -
-  timeout: 300
+  timeout: 1200
   cbmcArguments:
     classpath: '/tools/cbmc/models.jar:.'
     max-nondet-array-length: 30
     max-nondet-string-length: 10
     unwind: 3
+    java-test-input-factory-bmc-max-mutators: 4

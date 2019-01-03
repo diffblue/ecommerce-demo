@@ -9,7 +9,9 @@ phases:
     unwind: 1
     string-input-value: [Small, Medium, Large]
     string-non-empty: true
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
     java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
 -
   timeout: 300
   cbmcArguments:

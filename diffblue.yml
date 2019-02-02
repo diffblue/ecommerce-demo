@@ -1,3 +1,4 @@
+testRankerArgs: '--complexity-upper-bound 3000 --desired-reflection-percentage 1 --test-quality-coefficient-upper-bound 10 --test-quality-coefficient-lower-bound 0.9'
 cbmcArguments:
   depth: false
   java-external-code-action: 'mock'

@@ -3,7 +3,7 @@
   "commandArguments": {
     "noRefineStrings": true,
     "doNotUsePreciseAccessPaths": true,
-    "syntheticEntryPoints": true,
+    "syntheticEntryPoints": false,
     "entryPoints": [
     ],
     "fileExclusions": [

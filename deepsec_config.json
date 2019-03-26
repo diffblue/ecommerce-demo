@@ -5,7 +5,7 @@
     "doNotUsePreciseAccessPaths": true,
     "syntheticEntryPoints": false,
     "entryPoints": [
-      "com.diffblue.demo.ecommerce.controllers.CheckoutController.saveCustomerInformation"
+      "com.diffblue.demo.ecommerce.controllers.CartController.updateCart"
     ],
     "fileExclusions": [
       "...",

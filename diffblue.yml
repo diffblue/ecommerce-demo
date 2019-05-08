@@ -40,6 +40,17 @@ phases:
       string-printable: false
       throw-runtime-exceptions: true
       unwind: 3
+  - timeout: 100
+    cbmcArguments:
+      classpath: '/tools/cbmc/models.jar:.'
+      depth: false
+      java-assume-inputs-non-null: false
+      max-nondet-array-length: 30
+      max-nondet-string-length: 100
+      paths: fifo
+      string-printable: false
+      throw-runtime-exceptions: true
+      unwind: false
   - timeout: 300
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'

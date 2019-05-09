@@ -5,7 +5,7 @@ skipVerification: true
 cbmcArguments:
   java-max-vla-length: 100000
 phases:
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
       depth: 1500
@@ -18,7 +18,7 @@ phases:
     nextPhase:
       not_analyzed: null
       time_out: 3
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
       depth: 1500
@@ -30,7 +30,7 @@ phases:
       unwind: 2
     nextPhase:
       time_out: 3
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
       depth: 3000
@@ -51,7 +51,7 @@ phases:
       string-printable: false
       throw-runtime-exceptions: true
       unwind: false
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
       depth: 1500
@@ -62,7 +62,7 @@ phases:
       string-printable: true
       throw-runtime-exceptions: false
       unwind: 1
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
       depth: 3000
@@ -73,7 +73,7 @@ phases:
       string-printable: false
       throw-runtime-exceptions: true
       unwind: 3
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
       depth: 1500
@@ -84,7 +84,7 @@ phases:
       string-printable: true
       throw-runtime-exceptions: false
       unwind: 1
-  - timeout: 300
+  - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
       depth: 3000

@@ -1,5 +1,5 @@
 # This file contains configuration for Diffblue Cover that is specific for
-# this project, typically a custom buildCmd, testCmd, classpathCmd and
+# this project, typically a custom buildCmd, classpathCmd and
 # java-version (as a CBMC argument).
 #
 # Other general options such as skipVerification, ignoreExistingCoverage, CBMC

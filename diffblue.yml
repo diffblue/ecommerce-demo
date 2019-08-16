@@ -1,6 +1,8 @@
 # This file was automatically generated using script in dashboard/scripts/update-diffblue-yml
 # It is a combination of the local diffblue-base.yml and the yml file in dashboard/scripts/update-diffblue-yml
 # Do not change any of the values manually to keep options uniform across all benchmarks
+testCmd: 'true'
+ignoreExistingCoverage: true
 skipVerification: true
 staticValuesJson: true
 cbmcArguments:

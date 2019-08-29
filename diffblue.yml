@@ -39,20 +39,25 @@ phases:
         - <init>
         - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: true
+      max-nondet-array-length: 2
+      max-nondet-string-length: 10
+      string-printable: true
+      throw-runtime-exceptions: false
+      unwind: 2
+  - timeout: 150
+    cbmcArguments:
+      classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+      java-assume-inputs-non-null: true
       max-nondet-array-length: 10
       max-nondet-string-length: 10
       string-printable: true
       throw-runtime-exceptions: false
       unwind: 1
     nextPhase:
-      time_out: 4
+      time_out: 5
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       max-nondet-array-length: 20
       max-nondet-string-length: 50
@@ -60,14 +65,10 @@ phases:
       throw-runtime-exceptions: false
       unwind: 2
     nextPhase:
-      time_out: 4
+      time_out: 5
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       max-nondet-array-length: 30
       max-nondet-string-length: 100
@@ -77,10 +78,6 @@ phases:
   - timeout: 100
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       max-nondet-array-length: 30
       max-nondet-string-length: 100
@@ -91,10 +88,6 @@ phases:
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: true
       load-containing-class-only: true
       max-nondet-array-length: 10
@@ -105,10 +98,6 @@ phases:
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       load-containing-class-only: true
       max-nondet-array-length: 30
@@ -119,10 +108,6 @@ phases:
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       load-containing-class-only: true
       max-nondet-array-length: 30
@@ -133,10 +118,6 @@ phases:
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: true
       max-nondet-array-length: 10
       max-nondet-string-length: 10
@@ -147,10 +128,6 @@ phases:
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'
-      smart-harness: input-factory
-      java-test-input-factory-entry-point:
-        - <init>
-        - 'set[A-Z]\\w*'
       java-assume-inputs-non-null: false
       max-nondet-array-length: 30
       max-nondet-string-length: 100

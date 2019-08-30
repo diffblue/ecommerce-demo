@@ -27,6 +27,7 @@ phases:
       max-nondet-array-length: 10
       max-nondet-string-length: 10
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 1
     nextPhase:
@@ -42,6 +43,7 @@ phases:
       max-nondet-array-length: 2
       max-nondet-string-length: 10
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 2
   - timeout: 150
@@ -51,6 +53,7 @@ phases:
       max-nondet-array-length: 10
       max-nondet-string-length: 10
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 1
     nextPhase:
@@ -62,6 +65,7 @@ phases:
       max-nondet-array-length: 20
       max-nondet-string-length: 50
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 2
     nextPhase:
@@ -73,6 +77,7 @@ phases:
       max-nondet-array-length: 30
       max-nondet-string-length: 100
       string-printable: false
+      java-assume-inputs-integral: false
       throw-runtime-exceptions: true
       unwind: 3
   - timeout: 100
@@ -83,6 +88,7 @@ phases:
       max-nondet-string-length: 100
       paths: fifo
       string-printable: false
+      java-assume-inputs-integral: false
       throw-runtime-exceptions: true
       unwind: false
   - timeout: 150
@@ -93,6 +99,7 @@ phases:
       max-nondet-array-length: 10
       max-nondet-string-length: 10
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 1
   - timeout: 150
@@ -103,6 +110,7 @@ phases:
       max-nondet-array-length: 30
       max-nondet-string-length: 100
       string-printable: false
+      java-assume-inputs-integral: false
       throw-runtime-exceptions: true
       unwind: 3
   - timeout: 150
@@ -113,6 +121,7 @@ phases:
       max-nondet-array-length: 30
       max-nondet-string-length: 100
       string-printable: false
+      java-assume-inputs-integral: false
       throw-runtime-exceptions: false
       unwind: 15
   - timeout: 150
@@ -123,6 +132,7 @@ phases:
       max-nondet-string-length: 10
       single-function-only: true
       string-printable: true
+      java-assume-inputs-integral: true
       throw-runtime-exceptions: false
       unwind: 1
   - timeout: 150
@@ -133,5 +143,6 @@ phases:
       max-nondet-string-length: 100
       single-function-only: true
       string-printable: false
+      java-assume-inputs-integral: false
       throw-runtime-exceptions: true
       unwind: 3

@@ -57,7 +57,7 @@ phases:
       throw-runtime-exceptions: false
       unwind: 1
     nextPhase:
-      time_out: 5
+      time_out: 8
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
@@ -69,7 +69,43 @@ phases:
       throw-runtime-exceptions: false
       unwind: 2
     nextPhase:
-      time_out: 5
+      time_out: 8
+  - timeout: 150
+    cbmcArguments:
+      classpath: '/tools/cbmc/models.jar:.'
+      java-assume-inputs-non-null: false
+      max-nondet-array-length: 30
+      max-nondet-string-length: 100
+      string-printable: false
+      java-assume-inputs-integral: false
+      throw-runtime-exceptions: false
+      unwind: 4
+    nextPhase:
+      time_out: 8
+  - timeout: 150
+    cbmcArguments:
+      classpath: '/tools/cbmc/models.jar:.'
+      java-assume-inputs-non-null: false
+      max-nondet-array-length: 30
+      max-nondet-string-length: 100
+      string-printable: false
+      java-assume-inputs-integral: false
+      throw-runtime-exceptions: false
+      unwind: 8
+    nextPhase:
+      time_out: 8
+  - timeout: 150
+    cbmcArguments:
+      classpath: '/tools/cbmc/models.jar:.'
+      java-assume-inputs-non-null: false
+      max-nondet-array-length: 30
+      max-nondet-string-length: 100
+      string-printable: false
+      java-assume-inputs-integral: false
+      throw-runtime-exceptions: false
+      unwind: 16
+    nextPhase:
+      time_out: 8
   - timeout: 150
     cbmcArguments:
       classpath: '/tools/cbmc/models.jar:.'

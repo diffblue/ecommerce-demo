@@ -151,7 +151,7 @@ phases:
       max-nondet-string-length: 100
       string-printable: false
       java-assume-inputs-integral: false
-      throw-runtime-exceptions: true
+      throw-runtime-exceptions: false
       unwind: 3
   - timeout: 100
     cbmcArguments:
@@ -162,5 +162,5 @@ phases:
       paths: fifo
       string-printable: false
       java-assume-inputs-integral: false
-      throw-runtime-exceptions: true
+      throw-runtime-exceptions: false
       unwind: false

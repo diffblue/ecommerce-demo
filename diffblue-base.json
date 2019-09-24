@@ -1,0 +1,15 @@
+{
+  "phaseBase": {
+    "preferDepsJar": true,
+    "context-include": [
+      "com.diffblue.demo.ecommerce.",
+      "com.diffblue.annotation.",
+      "java.",
+      "org.cprover.",
+      "org.slf4j.",
+      "sun.misc.",
+      "sun.nio.cs.",
+      "sun.util."
+    ]
+  }
+}
